@@ -18,6 +18,7 @@
 
     <!-- Custom Theme Style -->
     <link href="<?php echo base_url('assets/gentelella-master/build/css/custom.min.css'); ?>" rel="stylesheet">
+    <link href="<?php echo base_url('assets/gentelella-master/build/css/custom.css'); ?>" rel="stylesheet">
   </head>
 
   <body class="nav-md">
@@ -26,7 +27,7 @@
         <div class="col-md-3 left_col">
           <div class="left_col scroll-view">
             <div class="navbar nav_title" style="border: 0;">
-              <a href="index.html" class="site_title"><i class="fa fa-automobile"></i> <span>Knoxville</span></a>
+              <a href="<?php echo base_url('knoxville')?>" class="site_title"><i class="fa fa-automobile"></i> <span>Knoxville</span></a>
             </div>
 
             <div class="clearfix"></div>
@@ -51,12 +52,7 @@
               <div class="menu_section">
                 <h3>General</h3>
                 <ul class="nav side-menu">
-                  <li><a><i class="fa fa-home"></i> Home <span class="fa fa-chevron-down"></span></a>
-                    <ul class="nav child_menu">
-                      <li><a href="index.html">Dashboard</a></li>
-                      <li><a href="index2.html">Dashboard2</a></li>
-                      <li><a href="index3.html">Dashboard3</a></li>
-                    </ul>
+                  <li><a href="<?php echo base_url('knoxville')?>"> <i class="fa fa-home"></i> Home </a>
                   </li>
                   <li><a href="<?php echo base_url('knoxville/viewSalesAgents')?>" class="navigation">Sales Agent Management</a>
                   </li>
