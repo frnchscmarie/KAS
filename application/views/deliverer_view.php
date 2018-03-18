@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<div class="tab-content">
+<div class="table-padding" >
   <?php echo validation_errors(); ?>
-<div class="card-body" style="padding: 10px;"> 
+
 <h3 style="text-align: center; text-decoration: bold;" >DELIVERER MANAGEMENT</h3>
 	<div class="search1">
 		Search: <input type="text" id="myInput" onkeyup="Deliverer()" placeholder="Type any value" title="Type ANY value" class="sround">
@@ -60,7 +60,7 @@
   </div>
   </div>
   </div>
-	</div>
+
 <div class="table-responsive table" id="myTable">
     <table class="table table-striped">
                 <thead>
