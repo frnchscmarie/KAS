@@ -12,8 +12,9 @@ class Knoxville extends CI_Controller {
         $this->load->model('deliverer_model','Deliverer');
         $this->load->model('shipment_model','Shipment');
         $this->load->model('shipment_status_model','ShipStatus');
-        
-        
+        $this->load->model('qoute_model','quote');
+        $this->load->model('client_qoute_model','clientQuote');
+        $this->load->model('purchase_model','purchase');
     }
     
     
@@ -427,7 +428,7 @@ class Knoxville extends CI_Controller {
                  $last=$this->Order->count();
                  $uid = (string) $last++;
                  $id = date("ymd").'-'.substr(str_pad($uid, 4, '0', STR_PAD_LEFT),-4);
-                 $orderRecord=array('orderID'=>$id,'clientID'=>$_POST['clientid'],'date'=>$_POST['date'],'time'=>$_POST['time'],'due'=>$_POST['duedate'],'userID'=>$this->session->userdata('userID'));
+                 $orderRecord=array('orderID'=>$id,'clientID'=>$_POST['clientID'],'date'=>$_POST['date'],'time'=>$_POST['time'],'due'=>$_POST['duedate'],'userID'=>$this->session->userdata('userID'));
                  $this->Order->create($orderRecord);
                  
                  $orderID=$this->Order->getLastRecordID();
@@ -445,10 +446,117 @@ class Knoxville extends CI_Controller {
                      }
                  }
             }
-             redirect('knoxville/viewTransaction/'.$orderID); 
+           //  redirect('knoxville/viewTransaction/'.$orderID); 
         }
     }
+
+    public function addQuote(){ 
     
+     $header_data['title'] = "Add Orders";
+     $rules = array(
+     
+                    array('field'=>'clientid', 'label'=>'Client', 'rules'=>'required'),
+                    array('field'=>'date', 'label'=>'date', 'rules'=>'required'),
+                    array('field'=>'time', 'label'=>'time', 'rules'=>'required'),
+                    array('field'=>'duedate', 'label'=>'Due date', 'rules'=>'required')
+                );
+                
+        $this->form_validation->set_rules($rules);
+        if($this->form_validation->run()==FALSE){
+            $result_array = $this->Client->read();
+            $data['clients'] = $result_array;
+            $this->load->model('item_model','Item');
+            $result_array = $this->Item->read();
+            $data['items'] = $result_array;
+            $this->load->view('include/header',$header_data);
+            $this->load->view('add_quote',$data);
+            $this->load->view('include/footer');
+        }
+        else{
+            $count = 0; 
+             if(!empty($_POST['itemList'])) {
+                 foreach($_POST['itemList'] as $check) {
+                    $count++;
+                 }
+                 
+                 $last=$this->clientQuote->count();
+                 $uid = (string) $last++;
+                 $id = date("ymd").'-'.substr(str_pad($uid, 4, '0', STR_PAD_LEFT),-4);
+                 $quoteRecord=array('quoteID'=>$id,'clientID'=>$_POST['clientID'],'date'=>$_POST['date'],'time'=>$_POST['time'],'due'=>$_POST['duedate'],'userID'=>$this->session->userdata('userID'));
+                 $this->clientQuote->create($quoteRecord);
+                 
+                 $quoteID=$this->clientQuote->getLastRecordID();
+                 // $orderID = $orderID['orderID'];
+                 $items=$_POST['itemList'];
+                 $price=$_POST['price'];
+                 $quantity=$_POST['quantity'];
+                 for($x = 0; $x<=$count; $x++){
+                     if($items[$x] != NULL){
+                        $Quote=array('quoteID'=>$quoteID,'itemID'=>$items[$x],'unit_price'=>$price[$x],'quantity'=>$quantity[$x]);   
+                        $this->quote->create($Quote);
+                        if($_POST['trans'] == 'Purchased'){
+                            $this->Item->subtractStocks($quantity[$x], $items[$x]);
+                        }
+                     }
+                 }
+            }
+            redirect('knoxville/viewOrders'); 
+        }
+    }
+    public function addPurchasedd(){ 
+    
+     $header_data['title'] = "Add Orders";
+     
+     $rules = array(
+                    array('field'=>'clientid', 'label'=>'Client', 'rules'=>'required'),
+                    array('field'=>'date', 'label'=>'date', 'rules'=>'required'),
+                    array('field'=>'time', 'label'=>'time', 'rules'=>'required'),
+                    array('field'=>'duedate', 'label'=>'Due date', 'rules'=>'required')
+                );
+                
+        $this->form_validation->set_rules($rules);
+        if($this->form_validation->run()==FALSE){
+            $result_array = $this->Client->read();
+            $data['clients'] = $result_array;
+            $this->load->model('item_model','Item');
+            $result_array = $this->Item->read();
+            $data['items'] = $result_array;
+            $this->load->view('include/header',$header_data);
+            $this->load->view('add_purchased',$data);
+            $this->load->view('include/footer');
+        }
+        else{
+            $count = 0; 
+             if(!empty($_POST['itemList'])) {
+                 foreach($_POST['itemList'] as $check) {
+                    $count++;
+                 }
+                 
+                 $last=$this->Order->count();
+                 $uid = (string) $last++;
+                 $id = date("ymd").'-'.substr(str_pad($uid, 4, '0', STR_PAD_LEFT),-4);
+                 $orderRecord=array('orderID'=>$id,'clientID'=>$_POST['clientid'],'date'=>$_POST['date'],'time'=>$_POST['time'],'due'=>$_POST['duedate'],'userID'=>$this->session->userdata('userID'));
+                 $this->Order->create($orderRecord);
+                 
+                 $orderID=$this->Order->getLastRecordID();
+                 // $orderID = $orderID['orderID'];
+                 $items=$_POST['itemList'];
+                 $price=$_POST['price'];
+                 $quantity=$_POST['quantity'];
+                 
+                 for($x = 0; $x<$count; $x++){
+                    if($items[$x] != NULL){
+                        $purchaseRecord=array('orderID'=>$orderID,'itemID'=>$items[$x],'unit_price'=>$price[$x],'quantity'=>$quantity[$x]);   
+                        $this->purchase->create($purchaseRecord);
+                       //if($_POST['trans'] == 'Purchased'){
+                        //  $this->Item->subtractStocks($quantity[$x], $items[$x]);
+                       // }
+                    }
+                 }
+            }    
+             redirect('knoxville/viewOrders'); 
+        }
+    }
     public function delOrder($orderID){
         $where_array = array('orderID'=>$orderID);
         $this->Order->del($where_array);
@@ -456,10 +564,12 @@ class Knoxville extends CI_Controller {
     }
     
     public function viewOrders(){
+        $result_array = $this->clientQuote->read();
+        $data['client_quote'] = $result_array; 
         $result_array = $this->Order->read();
-        $data['orders'] = $result_array; 
-        $result_array = $this->Client->read();
-        $data['clients'] = $result_array;
+        $data['orders'] = $result_array;
+        //$result_array = $this->Client->read();
+        //$data['clients'] = $result_array;
         $header_data['title'] = "View Sales";
         $this->load->view('include/header',$header_data);
         $this->load->view('order_view',$data);

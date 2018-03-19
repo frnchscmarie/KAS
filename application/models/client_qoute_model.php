@@ -1,7 +1,7 @@
 <?php
 
-class Client_model extends CI_Model {
-    private $table = 'client_qoute';
+class client_qoute_model extends CI_Model {
+    private $table = 'client_quote';
     
     function create($client_qouteRecord){
         $this->db->insert($this->table, $client_qouteRecord);
@@ -36,6 +36,15 @@ class Client_model extends CI_Model {
     $this->db->from($this->table);
     $query = $this->db->get();
     return $query->num_rows();
+    }
+
+    function getLastRecordID(){
+       $this->db->select('*');
+        $this->db->from($this->table);
+        $this->db->order_by('quoteID','asc');
+        $query = $this->db->get();
+        $row = $query->last_row();// To get last record form the table
+        return $row->quoteID;
     }
 }
 ?>

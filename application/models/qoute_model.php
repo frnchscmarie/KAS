@@ -1,7 +1,7 @@
 <?php
 
-class Client_model extends CI_Model {
-    private $table = 'qoute';
+class qoute_model extends CI_Model {
+    private $table = 'quote';
     
     function create($qouteRecord){
         $this->db->insert($this->table, $qouteRecord);
@@ -25,8 +25,10 @@ class Client_model extends CI_Model {
     
     function update($newRecord){
         $this->db->replace($this->table,$newRecord);
+
     }
-    
+     
+
     function del($where_array){
         $this->db->delete($this->table,$where_array);
     }
