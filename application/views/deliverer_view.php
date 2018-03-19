@@ -16,7 +16,7 @@
                     <ul class="nav navbar-right panel_toolbox">
                       <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                       </li>
-                      <li><a href="<?php echo base_url('knoxville/addClient')?>"><i class="fa fa-plus"></i> Add Client </a>
+                      <li><a href="<?php echo base_url('knoxville/addDeliverer')?>"><i class="fa fa-plus"></i> Add Deliverer </a>
                       </li>
                     </ul>
                     <div class="clearfix"></div>
@@ -87,7 +87,7 @@
   </div>
 
 <div class="table-responsive table" id="myTable">
-    <table class="table table-striped">
+    <table class="table table-striped table-bordered">
                 <thead>
                     <tr id="trHead">
 						<th>Deliverer ID <span class="glyphicon glyphicon-sort" style="color: white;"></span></th>
@@ -103,7 +103,7 @@
                 foreach($deliverer as $c){  
                     echo "<tr><td>".$c['delivererID']."</td><td>".$c['vehicle']."<td>".$c['contact_no']."</td><td>".$c['assigned']
 
-                    .'</td><td><a href="'.base_url('knoxville/updateDeliverer/'.$c['delivererID']).'"><span class="glyphicon glyphicon-edit"></span></a> | <a onclick="confirmDelete('.$c['delivererID'].')"><span class="glyphicon glyphicon-trash"></span></a></td></tr>';
+                    .'</td><<td><a href="'.base_url('knoxville/updateDeliverer/'.$c['delivererID']).'" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i>Edit</a><a href="'.base_url('knoxville/delDeliverer/'.$c['delivererID']).'"class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i>Delete</a></td></tr>';
 
                     //echo base_url('knoxville/delClient/'.c['clientID'])
                 }

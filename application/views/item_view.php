@@ -16,7 +16,7 @@
                     <ul class="nav navbar-right panel_toolbox">
                       <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                       </li>
-                      <li><a href="<?php echo base_url('knoxville/addClient')?>"><i class="fa fa-plus"></i> Add Client </a>
+                      <li><a href="<?php echo base_url('knoxville/addItem')?>"><i class="fa fa-plus"></i> Add Item</a>
                       </li>
                     </ul>
                     <div class="clearfix"></div>
@@ -37,7 +37,7 @@
             <?php
                 foreach($item as $c){  
                     echo "<tr><td>".$c['item_desc']."</td><td>".$c['stocks']
-                    .'</td><td><a href="'.base_url('knoxville/updateItem/'.$c['itemID']).'">Edit</a> | <a href="'.base_url('knoxville/delItem/'.$c['itemID']).'">Delete</a></td></tr>';
+                    .'</td><td><a href="'.base_url('knoxville/updateItem/'.$c['itemID']).'" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i>Edit</a><a href="'.base_url('knoxville/delItem/'.$c['itemID']).'"class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i>Delete</a></td></tr>';
                     //echo base_url('knoxville/delClient/'.c['clientID'])
                 }
             ?>
