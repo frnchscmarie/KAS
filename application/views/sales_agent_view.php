@@ -16,8 +16,8 @@
                     <ul class="nav navbar-right panel_toolbox">
                       <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                       </li>
-                      <li><a href="<?php echo base_url('knoxville/addSalesAgent')?>"><i class="fa fa-plus"></i> Add Sales Agent </a>
-                      </li>
+                     <!-- <li><a href="<?php echo base_url('knoxville/addSalesAgent')?>"><i class="fa fa-plus"></i> Add Sales Agent </a>
+                      </li>-->
                     </ul>
                     <div class="clearfix"></div>
                   </div>
@@ -37,7 +37,7 @@
     </div>
     
         <div class="table-responsive">
-            <table class="table table-striped table-bordered">
+            <table id="datatable-fixed-header" class="table table-striped">
                 <thead>
                     <tr id="trHead">
 						<th >User ID</th>

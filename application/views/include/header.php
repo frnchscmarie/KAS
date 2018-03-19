@@ -15,10 +15,22 @@
     <link href="<?php echo base_url('assets/gentelella-master/vendors/font-awesome/css/font-awesome.min.css'); ?>" rel="stylesheet">
     <!-- NProgress -->
     <link href="<?php echo base_url('assets/gentelella-master/vendors/nprogress/nprogress.css'); ?>" rel="stylesheet">
+    <!-- iCheck -->
+    <link href="<?php echo base_url('assets/gentelella-master/vendors/iCheck/skins/flat/green.css'); ?>" rel="stylesheet">
+    <!-- Datatables -->
+    <link href="<?php echo base_url('assets/gentelella-master/vendors/datatables.net-bs/css/dataTables.bootstrap.min.css'); ?>" rel="stylesheet">
+    <link href="<?php echo base_url('assets/gentelella-master/vendors/datatables.net-buttons-bs/css/buttons.bootstrap.min.css'); ?>" rel="stylesheet">
+    <link href="<?php echo base_url('assets/gentelella-master/vendors/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css'); ?>" rel="stylesheet">
+    <link href="<?php echo base_url('assets/gentelella-master/vendors/datatables.net-responsive-bs/css/responsive.bootstrap.min.css'); ?>" rel="stylesheet">
+    <link href="<?php echo base_url('assets/gentelella-master/vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css'); ?>" rel="stylesheet">
 
     <!-- Custom Theme Style -->
     <link href="<?php echo base_url('assets/gentelella-master/build/css/custom.min.css'); ?>" rel="stylesheet">
     <link href="<?php echo base_url('assets/gentelella-master/build/css/custom.css'); ?>" rel="stylesheet">
+
+    <script src="<?php echo base_url('assets/js/multiple_selection.js'); ?>"></script>
+<script src="<?php echo base_url('assets/js/search.js'); ?>"></script>
+  <script src="<?php echo base_url('assets/js/select.js'); ?>"></script>
   </head>
 
   <body class="nav-md">
@@ -59,10 +71,11 @@
                   <li><a href="<?php echo base_url('knoxville/viewClients')?>" class="navigation">Client Management </a>
                    
                   </li>
-                  <li><a href="<?php echo base_url('knoxville/viewOrders')?>" class="navigation"> Sales Management</a>
+                  <li><a class="navigation"> Sales Management<span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="tables.html">Tables</a></li>
-                      <li><a href="tables_dynamic.html">Table Dynamic</a></li>
+                      <li><a href="<?php echo base_url('knoxville/viewOrders')?>">View Sales</a></li>
+                      <li><a href="<?php echo base_url('knoxville/addQuote')?>">Add Quotation</a></li>
+                      <li><a href="<?php echo base_url('knoxville/addPurchasedd')?>">Add Purchase</a></li>
                     </ul>
                   </li>
                   <li><a href="<?php echo base_url('knoxville/viewItems')?>" class="navigation">Inventory</a>

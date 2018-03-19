@@ -1,6 +1,6 @@
 <?php
 
-class Client_model extends CI_Model {
+class purchase_model extends CI_Model {
     private $table = 'purchase';
     
     function create($purchaseRecord){
@@ -36,6 +36,15 @@ class Client_model extends CI_Model {
     $this->db->from($this->table);
     $query = $this->db->get();
     return $query->num_rows();
+    }
+
+    function getLastRecordID(){
+       $this->db->select('*');
+        $this->db->from($this->table);
+        $this->db->order_by('orderID','asc');
+        $query = $this->db->get();
+        $row = $query->last_row();// To get last record form the table
+        return $row->orderID;
     }
 }
 ?>
