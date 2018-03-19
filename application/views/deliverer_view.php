@@ -16,21 +16,9 @@
                     <ul class="nav navbar-right panel_toolbox">
                       <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                       </li>
-                      <li><a href="<?php echo base_url('knoxville/addDeliverer')?>"><i class="fa fa-plus"></i> Add Deliverer </a>
-                      </li>
-                    </ul>
-                    <div class="clearfix"></div>
-                  </div>
-                  <div class="x_content">
-                    <p class="text-muted font-13 m-b-30">
-                      Manage all the deliverers.
-                    </p>
-                    <table id="datatable" class="table table-striped table-bordered">
-                      <thead>
-
-	<div class="search1">
-		Search: <input type="text" id="myInput" onkeyup="Deliverer()" placeholder="Type any value" title="Type ANY value" class="sround">
-	<a data-toggle="modal" data-target="#squarespaceModal" class="butt5" ><span class="glyphicon glyphicon-plus"> </span>&nbsp;Add Deliverer</a>
+                      <li><a data-toggle="modal" data-target="#squarespaceModal" class="butt5" ><i class="fa fa-plus"></i> Add Deliverer </a>
+					  
+					  	
 
 <div class="modal fade" id="squarespaceModal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
   <div class="modal-dialog">
@@ -75,15 +63,39 @@
     </div>
     
 	
-	<div class="col-sm-6" style="margin-left: 150px;">
-		<input class="subUpdate sround" type="submit" value="SUBMIT"/>
-	</div>
+	<div class="">
+		<label class="control-label col-sm-4">&nbsp;</label>
+	
+    </div>
+	
+	 <div class="form-group">
+                        <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+                          <button class="btn btn-primary" type="button" style="margin-left: 50px;"><a href="<?php echo base_url('knoxville/viewClients')?>" style="color: white;">Cancel</a></button>
+                          
+                          <button type="submit" class="btn btn-success" value="submit">Submit</button>
+                        </div>
+      </div>
+	  
   </div>
   </form>
   
  </div>
   </div>
   </div>
+                      </li>
+                    </ul>
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="x_content">
+                    <p class="text-muted font-13 m-b-30">
+                      Manage all the deliverers.
+                    </p>
+                    <table id="datatable" class="table table-striped table-bordered">
+                      <thead>
+
+	<div class="search1">
+		Search: <input type="text" id="myInput" onkeyup="Deliverer()" placeholder="Type any value" title="Type ANY value" class="sround">
+
   </div>
 
 <div class="table-responsive table" id="myTable">
@@ -103,7 +115,7 @@
                 foreach($deliverer as $c){  
                     echo "<tr><td>".$c['delivererID']."</td><td>".$c['vehicle']."<td>".$c['contact_no']."</td><td>".$c['assigned']
 
-                    .'</td><<td><a href="'.base_url('knoxville/updateDeliverer/'.$c['delivererID']).'" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i>Edit</a><a href="'.base_url('knoxville/delDeliverer/'.$c['delivererID']).'"class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i>Delete</a></td></tr>';
+                    .'</td><td><a href="'.base_url('knoxville/updateDeliverer/'.$c['delivererID']).'" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i>Edit</a><a href="'.base_url('knoxville/delDeliverer/'.$c['delivererID']).'"class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i>Delete</a></td></tr>';
 
                     //echo base_url('knoxville/delClient/'.c['clientID'])
                 }

@@ -2,50 +2,92 @@
 
 <div class="tab-content">
 <div>&nbsp;</div>
-<h2 class="text-center">UPDATE SALES AGENT</h2>
   <?php echo validation_errors(); ?>
   
-  <?php echo form_open('knoxville/updateSalesAgent'); //this is equal to <form method="post" accept-charset="utf-8" action="http://localhost/Knoxville-Auto-Supply/knoxville/addClient">
+  <?php echo form_open('knoxville/updateSalesAgent'); //this is equal to <form method="post" accept-charset="utf-8" action="http://localhost/Knoxville-Auto-Supply/knoxville/updateSalesAgent">
                                      //to add attributes, edit to: echo form('knoxville/addClient','class="lala" id="lala"'); 
   ?> 
-  <div>&nbsp;</div>
+
+	<div class="right_col" role="main">
+          <div class="">
+           
+    
+    <div class="clearfix"></div>
+
+
   
-  <div class="container ClientForm">
-    <div>
-		<label class="control-label col-sm-4" for="userID">UserID:</label>
-		<input class="form-control col-sm-4 user" type="text" name="userID" id="userID" value="<?php echo $userID?>" />
+  
+  <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel">
+                  <div class="x_title">
+                    <h3>Edit Sales Agent</h3>
+                    <ul class="nav navbar-right panel_toolbox">
+                      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                      </li>
+                    </ul>
+                    <div class="clearfix"></div>
+               </div>
+                  <div class="x_content">
+                    <br />
+<div class="col-md-6" style="padding: 10px; text-align: center; margin-left: 250px;">
+          <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
+
+                      <div class="form-group has-feedback">
+                        <input type="text" class="form-control has-feedback-left" for="userID" id="inputSuccess2" placeholder="User ID" name="userID" value="<?php echo $userID; ?>" id="userID">
+                        <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
+                      </div>
+					  
+					  
+                      <div class=" form-group has-feedback">
+                        <input type="password" class="form-control has-feedback-left" for="pass" id="inputSuccess2" placeholder="Password" name="pass" value="<?php echo $pass; ?>" id="caddress">
+                        <span class="fa fa-home form-control-feedback left" aria-hidden="true"></span>
+                      </div>
+		
+                      <div class="form-group has-feedback">
+                        <input type="text" class="form-control has-feedback-left" for="name" id="inputSuccess2" placeholder="Name" name="name" value="<?php echo $name; ?>" id="name">
+                        <span class="fa fa-male form-control-feedback left" aria-hidden="true"></span>
+                      </div>
+					  
+					  <div class="form-group has-feedback">
+                        <input type="text" class="form-control has-feedback-left" for="bday" id="inputSuccess2" placeholder="Birthdate" name="bday" value="<?php echo $bday; ?>" id="bday">
+                        <span class="fa fa-birthday-cake form-control-feedback left" aria-hidden="true"></span>
+                      </div>
+					  
+					   <div class="form-group has-feedback">
+                        <input type="text" class="form-control has-feedback-left" for="email" id="inputSuccess2" placeholder="Email" name="email" value="<?php echo $email; ?>" id="email">
+                        <span class="fa fa-at form-control-feedback left" aria-hidden="true"></span>
+                      </div>
+						`
+					  
+					   <div class="form-group has-feedback">
+                        <input type="text" class="form-control has-feedback-left" for="cnum" id="inputSuccess2" placeholder="Contact Number" name="cnum" value="<?php echo $cnum; ?>" id="cnum">
+                        <span class="fa fa-mobile form-control-feedback left" aria-hidden="true"></span>
+                      </div>
+
+
+	                  
+                      <div class="form-group">
+                        <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+                          <button class="btn btn-primary" type="button"><a href="<?php echo base_url('knoxville/viewSalesAgents')?>" style="color: white;">Cancel</a></button>
+                          <button class="btn btn-primary" type="reset">Reset</button>
+                          <button type="submit" class="btn btn-success" value="submit">Submit</button>
+                        </div>
+                      </div>
+                     
+                      
+  </form>
+  </div>
+  </div>
+ 
+   </div>
+  </div>
+
+      </div>
+       </div>
+
+  </div>
     </div>
-    
-    <div>
-		<label class="control-label col-sm-4" for="pass">Password:</label>
-		<input class="form-control col-sm-4" type="password" name="pass" id="pass" value="<?php echo $pass?>" />
-    </div>
-    
-    <div>
-		<label class="control-label col-sm-4" for="name">Name:</label>
-		<input class="form-control col-sm-4" type="text" name="name" id="name" value="<?php echo $name?>" />
-    </div>
-    
-    <div>
-		<label class="control-label col-sm-4" for="bday">Birthdate:</label>
-		<input class="form-control col-sm-4" type="date" name="bday" id="bday" value="<?php echo $bday?>" />
-    </div>
-    
-    <div>
-		<label class="control-label col-sm-4" for="email">Email:</label>
-		<input class="form-control col-sm-4" type="email" name="email" id="email" value="<?php echo $email?>" />
-    </div>
-    
-    <div>
-		<label class="control-label col-sm-4" for="cnum">Contact Number:</label>
-		<input class="form-control col-sm-4" type="text" name="cnum" id="cnum" value="<?php echo $cnum?>" />
-    </div>
-    <div class="col-sm-6">
-		<input class="subUpdate sround" type="submit" value="SUBMIT" />
-	</div>
-	
-	</form>
-	</div>
 </div>
  </div>
 </body>

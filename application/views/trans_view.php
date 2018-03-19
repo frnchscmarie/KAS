@@ -3,16 +3,7 @@
 <?php echo validation_errors(); ?>
 <div class="card-body" style="padding: 20px;">
 <h3 style="text-align: center; text-decoration: bold;" >TRANSACTION DETAILS</h3>
-<div class="contentNested">
-	<div class="sales text-center">
-		<p class="font"><b>Client name:</b></p> <?php echo $cname?></p>
-	
 
-		<p class="font"><b>Address:</b></p> <p > <?php echo $cadd?> </p>
-		<p class="font"><b>Contact no.:</b></p> <p ><?php echo $cnum?></p> 
-	
-		<br />
-	</div>
 	<br />
 	<br />
 	<p class="xxx text-center"><a href="<?php echo base_url('knoxville/addSched/'.$orderID) ?>"><span class="glyphicon glyphicon-plus"> </span>Schedule Delivery</a></a></p>
@@ -97,5 +88,80 @@
 
 	</div>
 	</div>
+	
+<!DOCTYPE html>
+<body class="nav-md">
+    <div class="container body">
+      <div class="main_container">
+
+<div class="right_col" role="main">
+          <div class="">
+    
+    <div class="clearfix"></div>
+
+            <div class="row">
+              <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel">
+                  <div class="x_title">
+                    <h2>Transaction</h2>
+                    <ul class="nav navbar-right panel_toolbox">
+                      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                      </li>
+                      <li><a href="<?php echo base_url('knoxville/addSched')?>"><i class="fa fa-plus"></i> Schedule Delivery</a>
+                      </li>
+                    </ul>
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="x_content">
+				  
+		<div class="col-md-6" style="padding: 10px; text-align: center; margin-left: 250px;">
+          <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
+
+                      <div class="form-group has-feedback">
+                        <label><?php echo $cname?></label>
+                        <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
+                      </div>
+		
+                      <div class="form-group has-feedback">
+                        <label><?php echo $cadd?></label>
+                        <span class="fa fa-book form-control-feedback left" aria-hidden="true"></span>
+                      </div>
+					  
+					    <div class="form-group has-feedback">
+                       <label><?php echo $cnum?></label>
+                        <span class="fa fa-cube form-control-feedback left" aria-hidden="true"></span>
+                      </div>
+
+                     
+                      
+  </form>
+  </div>
+                    <table id="datatable" class="table table-striped table-bordered">
+                      <thead>
+                    <tr id="trHead">
+						<th>Item Name</th>
+						<th>Price</th>
+						<th>Quantity</th>
+						<th>Date</th>
+						<th>Status</th>
+						<th>Action</th>
+					</tr>
+				</thead>
+        <tbody>
+            <?php
+                foreach($item as $c){  
+                    echo "<tr><td>".$c['item_desc']."</td><td>".$c['stocks']
+                    .'</td><td><a href="'.base_url('knoxville/updateItem/'.$c['itemID']).'" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i>Edit</a><a href="'.base_url('knoxville/delItem/'.$c['itemID']).'"class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i>Delete</a></td></tr>';
+                    //echo base_url('knoxville/delClient/'.c['clientID'])
+                }
+            ?>
+        </tbody>
+    </table>
+    </div>
+</div>
+    </div>
+</div>
+    </div>
+</div>
 </body>
 </html>
