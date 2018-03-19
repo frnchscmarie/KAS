@@ -1,12 +1,33 @@
 <!DOCTYPE html>
 
-<html>
-<head>
-    <title>View Orders</title>
-</head>
-<body>
-    <table>
-        <thead>
+<body class="nav-md">
+    <div class="container body">
+      <div class="main_container">
+
+<div class="right_col" role="main">
+          <div class="">
+    
+    <div class="clearfix"></div>
+
+            <div class="row">
+              <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel">
+                  <div class="x_title">
+                    <h2>Sales Management</h2>
+                    <ul class="nav navbar-right panel_toolbox">
+                      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                      </li>
+                      <li><a href="<?php echo base_url('knoxville/addClient')?>"><i class="fa fa-plus"></i> Add Client </a>
+                      </li>
+                    </ul>
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="x_content">
+                    <p class="text-muted font-13 m-b-30">
+                      Manage all the clients here eekek adsadjkdf sjhdkasd sakdjaslkd.
+                    </p>
+                    <table id="datatable" class="table table-striped table-bordered">
+                      <thead>
             <tr>
                 <th>Client Name</th>
                 <th>Date</th>

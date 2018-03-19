@@ -1,22 +1,36 @@
 <!DOCTYPE html>
+<body class="nav-md">
+    <div class="container body">
+      <div class="main_container">
 
-	<a href="<?php echo base_url('knoxville/addItem')?>"><button class="btn btn-primary" type="button" id="addButton"><span class="glyphicon glyphicon-plus"> </span>Add Item</button></a>
-	
-	<div id="table">
-    <div id="myModal" class="modal fade" role="dialog">
-        <div class="modal-dialog">
-            <div class="modal-content">
-            </div>
-        </div>
-    </div>
+<div class="right_col" role="main">
+          <div class="">
     
-        <div class="table-responsive">
-            <table class="table table-striped">
-                <thead>
+    <div class="clearfix"></div>
+
+            <div class="row">
+              <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel">
+                  <div class="x_title">
+                    <h2>Inventory</h2>
+                    <ul class="nav navbar-right panel_toolbox">
+                      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                      </li>
+                      <li><a href="<?php echo base_url('knoxville/addClient')?>"><i class="fa fa-plus"></i> Add Client </a>
+                      </li>
+                    </ul>
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="x_content">
+                    <p class="text-muted font-13 m-b-30">
+                      Manage all the clients here eekek adsadjkdf sjhdkasd sakdjaslkd.
+                    </p>
+                    <table id="datatable" class="table table-striped table-bordered">
+                      <thead>
                     <tr id="trHead">
-						<th class="info">Item Description</th>
-						<th class="info">Stocks</th>
-						<th class="info">ACTION</th>
+						<th>Item Description</th>
+						<th>Stocks</th>
+						<th>ACTION</th>
 					</tr>
 				</thead>
         <tbody>
@@ -29,6 +43,10 @@
             ?>
         </tbody>
     </table>
+    </div>
+</div>
+    </div>
+</div>
     </div>
 </div>
 </body>

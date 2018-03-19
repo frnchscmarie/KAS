@@ -1,8 +1,33 @@
 <!DOCTYPE html>
-<div class="table-padding" >
-  <?php echo validation_errors(); ?>
+<body class="nav-md">
+    <div class="container body">
+      <div class="main_container">
 
-<h3 style="text-align: center; text-decoration: bold;" >DELIVERER MANAGEMENT</h3>
+<div class="right_col" role="main">
+          <div class="">
+    
+    <div class="clearfix"></div>
+
+            <div class="row">
+              <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel">
+                  <div class="x_title">
+                    <h2>DELIVERER MANAGEMENT</h2>
+                    <ul class="nav navbar-right panel_toolbox">
+                      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                      </li>
+                      <li><a href="<?php echo base_url('knoxville/addClient')?>"><i class="fa fa-plus"></i> Add Client </a>
+                      </li>
+                    </ul>
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="x_content">
+                    <p class="text-muted font-13 m-b-30">
+                      Manage all the clients here eekek adsadjkdf sjhdkasd sakdjaslkd.
+                    </p>
+                    <table id="datatable" class="table table-striped table-bordered">
+                      <thead>
+
 	<div class="search1">
 		Search: <input type="text" id="myInput" onkeyup="Deliverer()" placeholder="Type any value" title="Type ANY value" class="sround">
 	<a data-toggle="modal" data-target="#squarespaceModal" class="butt5" ><span class="glyphicon glyphicon-plus"> </span>&nbsp;Add Deliverer</a>
@@ -87,6 +112,10 @@
         </tbody>
     </table>
     </div>
+</div>
+</div>
+</div>
+</div>
 </div>
 <script>
     function confirmDelete(delivererID){
