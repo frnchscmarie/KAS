@@ -16,14 +16,14 @@
                     <ul class="nav navbar-right panel_toolbox">
                       <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                       </li>
-                      <li><a href="<?php echo base_url('knoxville/addClient')?>"><i class="fa fa-plus"></i> Add Client </a>
+                      <li><a href="<?php echo base_url('knoxville/addItem')?>"><i class="fa fa-plus"></i> Add Item</a>
                       </li>
                     </ul>
                     <div class="clearfix"></div>
                   </div>
                   <div class="x_content">
                     <p class="text-muted font-13 m-b-30">
-                      Manage all the clients here eekek adsadjkdf sjhdkasd sakdjaslkd.
+                      Manage all the items.
                     </p>
                     <table id="datatable" class="table table-striped table-bordered">
                       <thead>
@@ -37,7 +37,7 @@
             <?php
                 foreach($item as $c){  
                     echo "<tr><td>".$c['item_desc']."</td><td>".$c['stocks']
-                    .'</td><td><a href="'.base_url('knoxville/updateItem/'.$c['itemID']).'">Edit</a> | <a href="'.base_url('knoxville/delItem/'.$c['itemID']).'">Delete</a></td></tr>';
+                    .'</td><td><a href="'.base_url('knoxville/updateItem/'.$c['itemID']).'" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i>Edit</a><a href="'.base_url('knoxville/delItem/'.$c['itemID']).'"class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i>Delete</a></td></tr>';
                     //echo base_url('knoxville/delClient/'.c['clientID'])
                 }
             ?>

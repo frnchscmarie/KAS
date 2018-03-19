@@ -40,22 +40,20 @@
             <table id="datatable-fixed-header" class="table table-striped">
                 <thead>
                     <tr id="trHead">
-						<th class="info">User ID</th>
-						<th class="info">Password</th>
-						<th class="info">Name</th>
-						<th class="info">Birthdate</th>
+						<th >User ID</th>
+						<th >Password</th>
+						<th >Name</th>
+						<th >Birthdate</th>
 						
-						<th class="info">Email</th>
-						<th class="info">Contact Number</th>
-						<th class="info">isAdmin</th>
-						<th class="info">ACTION</th>
+						<th >Email</th>
+						<th >Contact Number</th>
+						<th >ACTION</th>
 					</tr>
 				</thead>
         <tbody>
             <?php
                 foreach($sales_agents as $c){  
-                    echo "<tr><td>".$c['userID']."</td><td>".$c['password']."</td><td>".$c['fullname']."</td><td>".$c['birthdate']."</td><td>".$c['email']."</td><td>".$c['contact_no']."</td><td>".$c['isAdmin']
-                    .'</td><td><a href="'.base_url('knoxville/updateSalesAgent/'.$c['userID']).'">Edit</a> | <a href="'.base_url('knoxville/delSalesAgent/'.$c['userID']).'">Delete</a></td></tr>';
+                    echo "<tr><td>".$c['userID']."</td><td>".$c['password']."</td><td>".$c['fullname']."</td><td>".$c['birthdate']."</td><td>".$c['email']."</td><td>".$c['contact_no'].'</td><td><a href="'.base_url('knoxville/updateSalesAgent/'.$c['userID']).'" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i>Edit</a>| <a href="'.base_url('knoxville/delSalesAgent/'.$c['userID']).'"class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i>Delete</a></td></tr>';
                     //echo base_url('knoxville/delClient/'.c['clientID'])
                 }
             ?>
