@@ -2204,7 +2204,7 @@ legend {
     right: 13px
 }
 .form-control.has-feedback-left {
-    padding-left: 45px
+    padding-left: 60px
 }
 .form-control.has-feedback-right {
     padding-right: 45px
@@ -4190,6 +4190,7 @@ ul.notifications {
 }
 
 .table-padding{padding: 10px 30px 0px 250px;}
+
 
 
 

@@ -12,23 +12,21 @@
               <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                   <div class="x_title">
-                    <h2>Inventory</h2>
+                    <h2>Sales Agent Management</h2>
                     <ul class="nav navbar-right panel_toolbox">
                       <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                       </li>
-                      <li><a href="<?php echo base_url('knoxville/addClient')?>"><i class="fa fa-plus"></i> Add Client </a>
+                      <li><a href="<?php echo base_url('knoxville/addSalesAgent')?>"><i class="fa fa-plus"></i> Add Sales Agent </a>
                       </li>
                     </ul>
                     <div class="clearfix"></div>
                   </div>
                   <div class="x_content">
                     <p class="text-muted font-13 m-b-30">
-                      Manage all the clients here eekek adsadjkdf sjhdkasd sakdjaslkd.
+                      Manage all the Sales Agents here.
                     </p>
                     <table id="datatable" class="table table-striped table-bordered">
                       <thead>
-
-	<a href="<?php echo base_url('knoxville/addSalesAgent')?>"><button class="btn btn-primary" type="button" id="addButton"><span class="glyphicon glyphicon-plus"> </span>Add Sales Agent</button></a>
 	
 	<div id="table">
     <div id="myModal" class="modal fade" role="dialog">

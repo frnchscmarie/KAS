@@ -17,18 +17,19 @@
                     <ul class="nav navbar-right panel_toolbox">
                       <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                       </li>
-                      <li><a href="<?php echo base_url('knoxville/addClient')?>"><i class="fa fa-plus"></i> Add Client </a>
+                      <li><a href="<?php echo base_url('knoxville/addOrder')?>"><i class="fa fa-plus"></i> Add Order </a>
                       </li>
                     </ul>
                     <div class="clearfix"></div>
                   </div>
                   <div class="x_content">
                     <p class="text-muted font-13 m-b-30">
-                      Manage all the clients here eekek adsadjkdf sjhdkasd sakdjaslkd.
+                      Manage all the orders here.
                     </p>
                     <table id="datatable" class="table table-striped table-bordered">
                       <thead>
             <tr>
+                <th>Order Number</th>
                 <th>Client Name</th>
                 <th>Date</th>
                 <th>Time</th>
@@ -41,7 +42,7 @@
 			
 			 
                 foreach($orders as $c){ //Array ( [clientID] => 1 [client_name] => dsa [address] => dsa [contact_no] => 123 ) 
-                    echo "<tr><td>".$c['clientID']."</td><td>".$c['date']."</td><td>".$c['time']."</td><td>".$c['due']
+                    echo "<tr><td>".$c['clientID']."</td><td>".$c['clientID']."</td><td>".$c['date']."</td><td>".$c['time']."</td><td>".$c['due']
                     .'</td><td><a href="">Edit</a> | <a href="">Delete</a></td></tr>';
                     //echo base_url('knoxville/delClient/'.c['clientID'])
                 }
@@ -49,6 +50,5 @@
 			
         </tbody>
     </table>
-    <a href="<?php echo base_url('knoxville/addOrder')?>">Add Order</a>
 </body>
 </html>

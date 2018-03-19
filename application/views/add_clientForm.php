@@ -39,33 +39,35 @@
                </div>
                   <div class="x_content">
                     <br />
+<div class="col-md-6" style="padding: 10px; text-align: center; margin-left: 250px;">
           <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
 
-                      <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+                      <div class="form-group has-feedback">
                         <input type="text" class="form-control has-feedback-left" for="cname" id="inputSuccess2" placeholder="Client Name" name="cname" value="<?php echo set_value('cname'); ?>" id="cname">
                         <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
                       </div>
-
-                      <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+		
+                      <div class="form-group has-feedback">
                         <input type="text" class="form-control has-feedback-left" for="cnum" id="inputSuccess2" placeholder="Contact Number" name="cnum" value="<?php echo set_value('cnum'); ?>" id="cnum">
                         <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
                       </div>
 
-                      <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                        <input type="text" class="form-control has-feedback-left" for="caddress" id="inputSuccess2" placeholder="Contact Number" name="caddress" value="<?php echo set_value('caddress'); ?>" id="caddress">
+                      <div class=" form-group has-feedback">
+                        <input type="text" class="form-control has-feedback-left" for="caddress" id="inputSuccess2" placeholder="Address" name="caddress" value="<?php echo set_value('caddress'); ?>" id="caddress">
                         <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
                       </div>
-	                   <div class="ln_solid"></div>
+	                  
                       <div class="form-group">
                         <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
-                          <button class="btn btn-primary" type="button">Cancel</button>
+                          <button class="btn btn-primary" type="button"><a href="<?php echo base_url('knoxville/viewClients')?>" style="color: white;">Cancel</a></button>
                           <button class="btn btn-primary" type="reset">Reset</button>
                           <button type="submit" class="btn btn-success" value="submit">Submit</button>
                         </div>
                       </div>
+                     
                       
   </form>
-  
+  </div>
   </div>
  
    </div>
