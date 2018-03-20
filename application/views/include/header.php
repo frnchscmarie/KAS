@@ -66,22 +66,22 @@
                 <ul class="nav side-menu">
                   <li><a href="<?php echo base_url('knoxville')?>"> <i class="fa fa-home"></i> Home </a>
                   </li>
-                  <li><a href="<?php echo base_url('knoxville/viewSalesAgents')?>" class="navigation">Sales Agent Management</a>
+                  <li><a href="<?php echo base_url('knoxville/viewSalesAgents')?>"> <i class="fa fa-user"></i>Sales Agent Management</a>
                   </li>
-                  <li><a href="<?php echo base_url('knoxville/viewClients')?>" class="navigation">Client Management </a>
+                  <li><a href="<?php echo base_url('knoxville/viewClients')?>" > <i class="fa fa-group"></i>Client Management </a>
                    
                   </li>
-                  <li><a class="navigation"> Sales Management<span class="fa fa-chevron-down"></span></a>
+                  <li> <a><i class="fa fa-bar-chart"></i> Sales Management<span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="<?php echo base_url('knoxville/viewOrders')?>">View Sales</a></li>
                       <li><a href="<?php echo base_url('knoxville/addQuote')?>">Add Quotation</a></li>
                       <li><a href="<?php echo base_url('knoxville/addPurchasedd')?>">Add Purchase</a></li>
                     </ul>
                   </li>
-                  <li><a href="<?php echo base_url('knoxville/viewItems')?>" class="navigation">Inventory</a>
+                  <li><a href="<?php echo base_url('knoxville/viewItems')?>"><i class="fa fa-info"></i>Inventory</a>
                     
                   </li>
-                  <li><a href="<?php echo base_url('knoxville/viewDeliverer')?>" class="navigation">Deliverer Management</a>
+                  <li><a href="<?php echo base_url('knoxville/viewDeliverer')?>"> <i class="fa fa-truck"></i>Deliverer Management</a>
                   </li>
                 </ul>
               </div>
@@ -123,7 +123,7 @@
 
               <ul class="nav navbar-nav navbar-right">
                 <li class="">
-                  <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                  <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
                     <img src="images/img.jpg" alt="">Welcome, Admin!
                     <span class=" fa fa-angle-down"></span>
                   </a>
