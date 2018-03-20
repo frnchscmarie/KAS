@@ -103,7 +103,6 @@
                       </li>
                     </ul>
                     <div class="clearfix"></div>
-                  </div>
                   <div class="x_content">
                     <p class="text-muted font-13 m-b-30">
                       Manage all the Sales Agents here.
@@ -135,10 +134,12 @@
 				</thead>
         <tbody>
             <?php
+				if($sales_agents!=null){
                 foreach($sales_agents as $c){  
                     echo "<tr><td>".$c['userID']."</td><td>".$c['password']."</td><td>".$c['fullname']."</td><td>".$c['birthdate']."</td><td>".$c['email']."</td><td>".$c['contact_no'].'</td><td><a href="'.base_url('knoxville/updateSalesAgent/'.$c['userID']).'" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i>Edit</a>| <a href="'.base_url('knoxville/delSalesAgent/'.$c['userID']).'"class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i>Delete</a></td></tr>';
                     //echo base_url('knoxville/delClient/'.c['clientID'])
                 }
+				}
             ?>
         </tbody>
     </table>

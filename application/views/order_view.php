@@ -34,12 +34,13 @@
         <tbody>
             <?php
 			
-			 
+			 	if($client_quote!=null){
                 foreach($client_quote as $c){ //Array ( [clientID] => 1 [client_name] => dsa [address] => dsa [contact_no] => 123 ) 
                     echo "<tr><td>".$c['quoteID']."</td><td>".$c['clientID']."</td><td>".$c['date']."</td><td>".$c['time']."</td><td>".$c['due']
                     .'</td><td><a href="'.base_url('knoxville/addPurchasedd/'.$c['quoteID']).'" class="btn btn-danger btn-xs"><i class="fa fa-thumbs-up"></i> Purchase</a></td></tr>';
                     //echo base_url('knoxville/delClient/'.c['clientID'])
                 }
+				}
             ?>
 			
         </tbody>
