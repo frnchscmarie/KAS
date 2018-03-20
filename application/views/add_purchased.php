@@ -117,7 +117,7 @@
                       echo '<tr><td>'.$c['item_desc'].'</td>
               <td class="col-sm-2">
 
-                <input type="number" class="form-control" id="price'.$counter.'"  name="price[]" value="0" disabled/>
+                <input type="number" class="form-control" id="price'.$counter.'"  name="price[]" value="'.$c['unit_price'].'" disabled/>
 				<span class="required"></span>
               </td>
               <td class="col-sm-2">             
