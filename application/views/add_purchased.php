@@ -2,7 +2,11 @@
 <body class="nav-md">
     <div class="container body">
       <div class="main_container">
-        <?php echo form_open('knoxville/addPurchasedd','id="order"'); //this is equal to <form method="post" accept-charset="utf-8" action="http://localhost/Knoxville-Auto-Supply/knoxville/addOrder">
+        <?php if($quoteID!=NULL)
+        echo form_open('knoxville/addPurchasedd/'.$quoteID,'id="order"');
+        else
+        echo form_open('knoxville/addPurchasedd/','id="order"');
+         //this is equal to <form method="post" accept-charset="utf-8" action="http://localhost/Knoxville-Auto-Supply/knoxville/addOrder">
                                      //to add attributes, edit to: echo form('knoxville/addOrder','class="lala" id="lala"'); 
   ?> 
 
@@ -45,10 +49,18 @@
                       <div class="form-group has-feedback">
                      <?php
 		echo '<select name="clientid" form="order">';
+      
+  if($quoteID==NULL){
 			echo '<option selected disabled hidden>Company Name</option>';
+      foreach($clients as $c){
+        echo '<option value="'.$c['clientID'].'">'.$c['client_name'].'</option>';
+      }
+  }
+  else{
 			foreach($clients as $c){
-				echo '<option value="'.$c['clientID'].'">'.$c['client_name'].'</option>';
-			}
+				echo '<option selected value="'.$c['clientID'].'">'.$c['client_name'].'</option>';
+      }
+    }
 		echo '</select>';
 		?>
                       </div>
@@ -90,28 +102,67 @@
 				</thead>
 					
         <tbody>
-            <?php
-				$counter = 0;
-                if($items != false){
-                    foreach($items as $c){  
-                    $counter++;
-                        echo '<tr><td>'.$c['item_desc'].'</td>
-                            <td class="col-sm-2" >
+                   <?php
+        $counter = 0;
 
-                                <input style="width: 100px;" type="number" class="form-control" id="price'.$counter.'"  name="price[]" value="0" disabled />
-                            </td>
-                            <td class="col-sm-2">							
-                                <input style="width: 100px;" type="number" class="form-control" id="quantity'.$counter.'"  name="quantity[]" value="0" disabled />
-                            </td>
-                            
-                            <td>
-							<input   style="margin: 15px;" type="checkbox" name="itemList[]" id="items'.$counter.'" value="'.$c['itemID'].'" onClick="toggle('."'items".$counter."'".', '."'price".$counter."'".', '."'quantity".$counter."'".')"  /></td>
-                            
-                            ';
-                            
-                            
+        if($quoteID!=null){
+          foreach($Qrec as $q){
+            foreach($items as $c){ 
+            if($q['itemID']==$c['itemID']){
+            $counter++;
+                      echo '<tr><td>'.$c['item_desc'].'</td>
+              <td class="col-sm-4">
+
+                <input type="number" class="form-control" id="price'.$counter.'" value="'.$q['unit_price'].'" name="price[]">
+              </td>
+              <td class="col-sm-4">             
+                <input type="number" class="form-control" id="quantity'.$counter.'"  name="quantity[]" value="'.$q['quantity'].'">
+              </td>
+              
+              <td><input type="checkbox" name="itemList[]" id="items'.$counter.'" value="'.$q['itemID'].'" onClick="toggle2('."'items".$counter."'".', '."'price".$counter."'".', '."'quantity".$counter."'".')"  checked/></td>';
+            }
+          }
+            foreach($items as $c){ 
+            $counter++;
+            if($q['itemID']!=$c['itemID']){
+                      echo '<tr><td>'.$c['item_desc'].'</td>
+              <td class="col-sm-2">
+
+                <input type="number" class="form-control" id="price'.$counter.'"  name="price[]" value="0" disabled/>
+              </td>
+              <td class="col-sm-2">             
+                <input type="number" class="form-control" id="quantity'.$counter.'"  name="quantity[]" value="0" disabled/>
+              </td>
+              
+              <td><input type="checkbox" name="itemList[]" id="items'.$counter.'" value="'.$c['itemID'].'" onClick="toggle('."'items".$counter."'".', '."'price".$counter."'".', '."'quantity".$counter."'".')"  /></td>
+              
+            ';
+
+            }
+          }
+        }
+      }
+      else{                
+          if($items!=NULL){
+                  foreach($items as $c){  
+          $counter++;
+                      echo '<tr><td>'.$c['item_desc'].'</td>
+              <td class="col-sm-2">
+
+                <input type="number" class="form-control" id="price'.$counter.'"  name="price[]" value="0" disabled />
+              </td>
+              <td class="col-sm-2">             
+                <input type="number" class="form-control" id="quantity'.$counter.'"  name="quantity[]" value="0" disabled />
+              </td>
+              
+              <td><input type="checkbox" name="itemList[]" id="items'.$counter.'" value="'.$c['itemID'].'" onClick="toggle('."'items".$counter."'".', '."'price".$counter."'".', '."'quantity".$counter."'".')"  /></td>
+              
+              ';
+              
+              
                     }
-                }
+                  }
+               } 
             ?>
 			
     </tbody>
