@@ -6,9 +6,9 @@
             <div class="page-title">
               <div class="row">
               <div class="col-md-12">
-                <div class="x_panel">
+                <div class="x_panel" style="height: 400px;">
                   <div class="x_title">
-                    <h2>Transaction Summary <small>Weekly progress</small></h2>
+                    <h2>Sales Report <small>Weekly progress</small></h2>
                     <div class="filter">
                       <div id="reportrange" class="pull-right" style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc">
                         <i class="glyphicon glyphicon-calendar fa fa-calendar"></i>
@@ -19,10 +19,54 @@
                   </div>
                   <div class="x_content">
                     <div class="col-md-9 col-sm-12 col-xs-12">
-                      <div class="demo-container" style="height:280px">
-                        <div id="chart_plot_02" class="demo-placeholder"></div>
+					<article class="media event">
+                      <a class="pull-left date">
+                        <p class="month">April</p>
+                        <p class="day">23</p>
+                      </a>
+                      <div class="media-body">
+                      	<i class="glyphicon glyphicon-calendar fa fa-calendar"></i>
+                        <select class="select" name='range'>
+							<option value="day" selected>Today</option>
+							<option value="week">This week</option>
+							<option value="month">This month</option>
+						</select>
+						<script>
+					        $(document).ready(function(){
+					            $.ajax({
+					                url: "<?php echo base_url('knoxville/viewSalesReport'); ?>",
+					                type: "POST",
+					                data: "range=day",
+					                
+					                success: function(data){
+					                    $('#sales_report').html(data);
+					                }
+					            });
+					        });
+					    </script>
+					    <script>
+					        $(document).ready(function(){
+					            $('#range-dropdown select').change(function(event){
+					                var selRange = $(this).val();
+					                $.ajax({
+					                    url: "<?php echo base_url('knoxville/viewSalesReport'); ?>",
+					                    type: "POST",
+					                    data: "range="+selRange,
+					                    
+					                    success: function(data){
+					                        $('#sales_report').html(data);
+					                    }
+					                });
+					            });
+					        });
+					    </script>
                       </div>
-                      <div class="tiles">
+                    </article>
+					<div>&nbsp;</div>
+                     <!-- <div class="demo-container" style="height:280px">
+                      <!-- <div id="chart_plot_02" class="demo-placeholder"></div> -->
+					   
+                      <!--<div class="tiles">
                         <div class="col-md-4 tile">
                           <span>Total Sessions</span>
                           <h2>231,809</h2>
@@ -44,7 +88,7 @@
                                  <canvas width="200" height="60" style="display: inline-block; vertical-align: top; width: 94px; height: 30px;"></canvas>
                           </span>
                         </div>
-                      </div>
+                      </div>-->
 
                     </div>
 
@@ -103,28 +147,7 @@
                               </p>
                             </div>
                           </li>
-                          <li class="media event">
-                            <a class="pull-left border-aero profile_thumb">
-                              <i class="fa fa-user aero"></i>
-                            </a>
-                            <div class="media-body">
-                              <a class="title" href="#">Ms. Mary Jane</a>
-                              <p><strong>$2300. </strong> Agent Avarage Sales </p>
-                              <p> <small>12 Sales Today</small>
-                              </p>
-                            </div>
-                          </li>
-                          <li class="media event">
-                            <a class="pull-left border-green profile_thumb">
-                              <i class="fa fa-user green"></i>
-                            </a>
-                            <div class="media-body">
-                              <a class="title" href="#">Ms. Mary Jane</a>
-                              <p><strong>$2300. </strong> Agent Avarage Sales </p>
-                              <p> <small>12 Sales Today</small>
-                              </p>
-                            </div>
-                          </li>
+                          
                         </ul>
                       </div>
                     </div>
@@ -136,7 +159,7 @@
             </div>
 
             <div class="clearfix"></div>
-            <div class="row">
+           <!-- <div class="row">
               <div class="col-md-4">
                 <div class="x_panel">
                   <div class="x_title">
@@ -158,51 +181,7 @@
                     </ul>
                     <div class="clearfix"></div>
                   </div>
-                  <div class="x_content">
-                    <article class="media event">
-                      <a class="pull-left date">
-                        <p class="month">April</p>
-                        <p class="day">23</p>
-                      </a>
-                      <div class="media-body">
-                      	<i class="glyphicon glyphicon-calendar fa fa-calendar"></i>
-                        <select class="select" name='range'>
-							<option value="day" selected>Today</option>
-							<option value="week">This week</option>
-							<option value="month">This month</option>
-						</select>
-						<script>
-					        $(document).ready(function(){
-					            $.ajax({
-					                url: "<?php echo base_url('knoxville/viewSalesReport'); ?>",
-					                type: "POST",
-					                data: "range=day",
-					                
-					                success: function(data){
-					                    $('#sales_report').html(data);
-					                }
-					            });
-					        });
-					    </script>
-					    <script>
-					        $(document).ready(function(){
-					            $('#range-dropdown select').change(function(event){
-					                var selRange = $(this).val();
-					                $.ajax({
-					                    url: "<?php echo base_url('knoxville/viewSalesReport'); ?>",
-					                    type: "POST",
-					                    data: "range="+selRange,
-					                    
-					                    success: function(data){
-					                        $('#sales_report').html(data);
-					                    }
-					                });
-					            });
-					        });
-					    </script>
-                      </div>
-                    </article>
-                  </div>
+                  
                 </div>
               </div>
             <!--<div class="row">
@@ -232,8 +211,8 @@
                   </div>
                 </div>
               </div>
-            </div>-->
-          </div>
+            </div>
+          </div>-->
          
 		  
 		  <div class="clearfix"></div>
