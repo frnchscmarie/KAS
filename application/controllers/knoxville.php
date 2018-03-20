@@ -16,6 +16,7 @@ class Knoxville extends CI_Controller {
         $this->load->model('client_qoute_model','clientQuote');
         $this->load->model('purchase_model','purchase');
         $this->load->model('stock_in_model','Stocks');
+        $this->load->model('returns_model','return');
     }
     
     
@@ -43,7 +44,7 @@ class Knoxville extends CI_Controller {
             }
         }
     }
-  /**  public function viewSalesReport(){
+     /*public function viewSalesReport(){
     
     
     
@@ -225,7 +226,7 @@ class Knoxville extends CI_Controller {
            
         }
                  $this->load->view('include/footer');
-    } **/
+    }*/
     
     public function viewSalesAgents(){
         $result_array = $this->SalesAgent->read();
@@ -670,6 +671,50 @@ class Knoxville extends CI_Controller {
             redirect('knoxville/viewOrders'); 
         }
     }
+    public function returnItem($orderID){
+       /** $rules = array(
+                    array('field'=>'date', 'label'=>'date', 'rules'=>'required'),
+                    array('field'=>'itemList', 'label'=>'time', 'rules'=>'required'),
+                );
+                
+        $this->form_validation->set_rules($rules);
+        if($this->form_validation->run()==FALSE){**/
+            $data['orderID']=$orderID;
+            $condition = array('orderID' => $orderID);
+            $orderRec = $this->purchase->read($condition);
+            $returnRec = $this->return->read($condition);
+            $data['order'] = $orderRec;
+            $data['return'] = $returnRec;
+            $result_array = $this->Item->read();
+            $data['items'] = $result_array;
+            $header_data['title'] = "Return";
+            $this->load->view('include/header',$header_data);
+            $this->load->view('return_view',$data);  
+       //  }
+        //else{
+        $count = 0; 
+             if(!empty($_POST['itemList'])) {
+                 foreach($_POST['itemList'] as $check) {
+                    $count++;
+                 }               
+               $items=$_POST['itemList'];
+             
+                 $quantity=$_POST['quantity'];
+                 
+                 for($x = 0; $x<$count; $x++){
+                    if($items[$x] != NULL){
+                        $returnRecord=array('orderID'=>$orderID,'itemID'=>$items[$x],'quantity'=>$quantity[$x],'date'=>$_POST['date'],'reason'=>'Defective Item');   
+                        $this->return->create($returnRecord);
+                       //if($_POST['trans'] == 'Purchased'){
+                        //  $this->Item->subtractStocks($quantity[$x], $items[$x]);
+                       // }
+                    }
+                 }
+            //}
+        redirect('knoxville/viewTransaction/'.$orderID);
+        } 
+    }
+    
     public function delOrder($orderID){
         $where_array = array('orderID'=>$orderID);
         $this->Order->del($where_array);
@@ -691,42 +736,24 @@ class Knoxville extends CI_Controller {
     public function viewTransaction($orderID){
         $condition = array('orderID' => $orderID);
         $orderRec = $this->Order->read($condition);
+        $returnRec = $this->return->read($condition);
         $data['orderID'] = $orderID;
         if($orderRec!=false){
             foreach($orderRec as $o){
-                $clientID = $o['clientID'];
+                $data['orderID'] = $o['orderID'];
+                $data['clientID']  = $o['clientID'];
+                $data['date']  = $o['date'];
+                $data['time']  = $o['time'];
+                $data['due']  = $o['due'];
             }
         }
-        $condition = array('clientID' => $clientID);
-        $clientRec = $this->Client->read($condition);
-        if($clientRec!=false){
-            foreach($clientRec as $o){
-                $data['cname'] = $o['client_name'];
-                $data['cadd'] = $o['address'];
-                $data['cnum'] = $o['contact_no'];
-            }
-        }
-        $condition = array('orderID' => $orderID);
-        $transRec = $this->Transaction->read($condition);
-        $data['trans'] = $transRec;
-        $result_array = $this->Item->read();
-        $data['items'] = $result_array;
         
-        $ShipRec = $this->Shipment->read($condition);
-        $shipRec = false;
-        if($ShipRec != false){
-             foreach($ShipRec as $s){
-                $shipID = $s['shipID'];
-            }
-            $condition = array('shipID' => $shipID);
-            $shipRec = $this->ShipStatus->read($condition);
-        }
-        
-        
-        $data['ship'] = $shipRec;
+        $data['returnI'] = $returnRec;
+        $data['purchased'] = $this->purchase->read($condition);
+        $data['items'] = $this->Item->read();
         $header_data['title'] = "Order#$orderID: Order Details";
         $this->load->view('include/header',$header_data);
-        $this->load->view('trans_view',$data);
+        $this->load->view('order_details_view',$data);
         $this->load->view('include/footer');
     }
     

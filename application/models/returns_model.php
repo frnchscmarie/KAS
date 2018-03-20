@@ -1,6 +1,6 @@
 <?php
 
-class Client_model extends CI_Model {
+class returns_model extends CI_Model {
     private $table = 'returns';
     
     function create($returnsRecord){
