@@ -14,6 +14,62 @@
     <div class="clearfix"></div>
   
   <div class="row">
+    <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel">
+                  <div class="x_title">
+                    <h3>Order Purchased Details</h3>
+                    <ul class="nav navbar-right panel_toolbox">
+                      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                      </li>
+                    </ul>
+                    <div class="clearfix"></div>
+               </div>
+                  <div class="x_content">
+                    <br />
+          <div class="col-md-4" style="padding: 10px; text-align: center; margin-left: 250px;">
+                    <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
+
+                                <div class="form-group has-feedback">
+                                  <label><?php echo $orderID?></label>
+                                  <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
+                                </div>
+
+                                <div class="form-group has-feedback">
+                                  <label><?php echo $clientID?></label>
+                                  <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
+                                </div>
+              
+                                <div class="form-group has-feedback">
+                                  <label><?php echo $date?></label>
+                                  <span class="fa fa-book form-control-feedback left" aria-hidden="true"></span>
+                                </div>
+                      
+                               <div class="form-group has-feedback">
+                                 <label><?php echo $time?></label>
+                                  <span class="fa fa-cube form-control-feedback left" aria-hidden="true"></span>
+                                </div>
+
+                                <div class="form-group has-feedback">
+                                 <label><?php echo $due?></label>
+                                  <span class="fa fa-cube form-control-feedback left" aria-hidden="true"></span>
+                                </div>
+
+                               
+                                
+            </form>
+            </div>
+              
+            <div class="form-group">
+                                  <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+                                    <button class="btn btn-primary"><a href="<?php echo base_url('knoxville/returnItem/'.$orderID);?>">Return Item</a></button>
+                                    <button class="btn btn-success"><a href="">Schedule for delivery</a></button>
+                                  </div>
+                                </div>
+            </div>
+
+            </div>
+            </div>
+
             <div class="col-md-6 col-sm-6 col-xs-12">
                 <div class="x_panel">
                   <div class="x_title">
@@ -59,49 +115,11 @@
       </tbody>
     </table>
 
-    <div class="col-md-4" style="padding: 10px; text-align: center; margin-left: 250px;">
-          <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
-
-                      <div class="form-group has-feedback">
-                        <label><?php echo $orderID?></label>
-                        <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
-                      </div>
-
-                      <div class="form-group has-feedback">
-                        <label><?php echo $clientID?></label>
-                        <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
-                      </div>
-    
-                      <div class="form-group has-feedback">
-                        <label><?php echo $date?></label>
-                        <span class="fa fa-book form-control-feedback left" aria-hidden="true"></span>
-                      </div>
-            
-                     <div class="form-group has-feedback">
-                       <label><?php echo $time?></label>
-                        <span class="fa fa-cube form-control-feedback left" aria-hidden="true"></span>
-                      </div>
-
-                      <div class="form-group has-feedback">
-                       <label><?php echo $due?></label>
-                        <span class="fa fa-cube form-control-feedback left" aria-hidden="true"></span>
-                      </div>
-
-                     
-                      
-  </form>
   </div>
-    
-  <div class="form-group">
-                        <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
-                          <button class="btn btn-primary"><a href="<?php echo base_url('knoxville/returnItem/'.$orderID);?>">Return Item</a></button>
-                          <button class="btn btn-success"><a href="">Schedule for delivery</a></button>
-                        </div>
-                      </div>
-  </div>
+</div>
+</div>
 
-  </div>
-  </div>
+
   <div class="col-md-6 col-sm-6 col-xs-12">
                 <div class="x_panel">
                   <div class="x_title">
@@ -151,38 +169,6 @@
       </tbody>
     </table>
 
-    <div class="col-md-6" style="padding: 10px; text-align: center; margin-left: 250px;">
-          <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
-
-                      <div class="form-group has-feedback">
-                        <label><?php echo $orderID?></label>
-                        <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
-                      </div>
-
-                      <div class="form-group has-feedback">
-                        <label><?php echo $clientID?></label>
-                        <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
-                      </div>
-    
-                      <div class="form-group has-feedback">
-                        <label><?php echo $date?></label>
-                        <span class="fa fa-book form-control-feedback left" aria-hidden="true"></span>
-                      </div>
-            
-                     <div class="form-group has-feedback">
-                       <label><?php echo $time?></label>
-                        <span class="fa fa-cube form-control-feedback left" aria-hidden="true"></span>
-                      </div>
-
-                      <div class="form-group has-feedback">
-                       <label><?php echo $due?></label>
-                        <span class="fa fa-cube form-control-feedback left" aria-hidden="true"></span>
-                      </div>
-
-                     
-                      
-  </form>
-  </div>
   </div>
     </div>
   </div>
