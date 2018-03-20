@@ -33,21 +33,22 @@
   <?php echo form_open('knoxville/addClient'); //this is equal to <form method="post" accept-charset="utf-8" action="http://localhost/Knoxville-Auto-Supply/knoxville/addClient">
                                      //to add attributes, edit to: echo form('knoxville/addClient','class="lala" id="lala"'); 
   ?> 
-    <div class="ClientForm">
-    <label class="control-label col-sm-4">Company Name </label>
-    <input class="form-control col-sm-4" type="text" name="cname" id="cname" placeholder="Company Name" />
-    </div>
+  
+					<div class="form-group has-feedback">
+                        <input type="text" class="form-control has-feedback-left" for="cname" id="inputSuccess2" placeholder="Company Name" name="cname" value="<?php echo set_value('cname'); ?>" id="cname">
+                        <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
+                      </div>
+					  
+					  <div class="form-group has-feedback">
+                        <input type="text" class="form-control has-feedback-left" for="caddress" id="inputSuccess2" placeholder="Company Address" name="caddress" value="<?php echo set_value('caddress'); ?>" id="caddress">
+                        <span class="fa fa-thumb-tack form-control-feedback left" aria-hidden="true"></span>
+                      </div>
+					  
+					  <div class="form-group has-feedback">
+                        <input type="text" class="form-control has-feedback-left" for="cnum" id="inputSuccess2" placeholder="Contact Number" name="cnum" value="<?php echo set_value('cnum'); ?>" id="cnum">
+                        <span class="fa fa-phone form-control-feedback left" aria-hidden="true"></span>
+                      </div>
 
-	 <div class="ClientForm">
-		<label class="control-label col-sm-4">Company Address</label>
-	    <input class="form-control col-sm-4" type="text" name="caddress" id="caddress" placeholder="Company Address" />
-	</div>
-	
-    
-    <div class="ClientForm">
-		<label class="control-label col-sm-4">Contact Number:</label>
-		<input class="form-control col-sm-4" type="text" name="cnum" id="cnum" placeholder="09-XXX-XXX-XXX" />
-    </div>
     
 	
 	<div class="">
@@ -75,7 +76,6 @@
                   </div>  
                     </ul>
                     <div class="clearfix"></div>
-                  </div>
                   <div class="x_content">
                     <p class="text-muted font-13 m-b-30">
                       Manage all the clients here.
@@ -94,7 +94,7 @@
             <?php
                 foreach($clients as $c){ //Array ( [clientID] => 1 [client_name] => dsa [address] => dsa [contact_no] => 123 ) 
                     echo "<tr><td>".$c['clientID']."</td><td>".$c['client_name']."</td><td>".$c['address']."</td><td>".$c['contact_no']
-                    .'</td><td><a href="'.base_url('knoxville/updateClient/'.$c['clientID']).'" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i> Edit</a><a href="'.base_url('knoxville/delClient/'.$c['clientID']).'"class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i> Delete</a></td></tr>';
+                    .'</td><td><a href="'.base_url('knoxville/updateClient/'.$c['clientID']).'" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i> Edit</a></td></tr>';
                     //echo base_url('knoxville/delClient/'.c['clientID'])
                 }
             ?>
