@@ -83,7 +83,7 @@
 		
            
   
-		<div class="col-sm-4" style="padding: 10px; text-align: center; margin-left: 200px;">
+		<div class="col-sm-6" style="padding: 10px; text-align: center; margin-left: 160px;">
 		
 		<div class="ClientForm">
 	
@@ -100,21 +100,34 @@
 		
 
 					<div class="form-group has-feedback">
-					<label class="control-label col-md-4 col-sm-4 col-xs-12" for="date">Date: </label>
-					<div class="col-md-8 col-sm-8 col-xs-12">
-                        <input type="date" class="form-control has-feedback-left" required="required" for="date" id="inputSuccess2" placeholder="Date" name="date" value="<?php echo date('Y-m-d'); ?>" id="date">
-                        <span class="fa fa-calendar form-control-feedback left required" aria-hidden="true"></span><br />
+					<label class="" for="date">Date: </label>
+					<div class="">
+                        <input type="date" class="form-control " required="required" for="date" id="inputSuccess2" placeholder="Date" name="date" value="<?php echo date('Y-m-d'); ?>" id="date">
+                        <br />
                       </div>
                       </div>
 					  
 					<div class="form-group has-feedback">
-					<label class="control-label col-md-4 col-sm-4 col-xs-12" for="time">Time: </label>
-					<div class="col-md-8 col-sm-8 col-xs-12">
-                        <input type="time" class="form-control has-feedback-left" required="required" for="time" id="inputSuccess2" placeholder="Time" name="time" value="<?php date_default_timezone_set('Asia/Manila'); echo  date("H:i"); ?>" id="time">
-                        <span class="fa fa-clock-o form-control-feedback left required" aria-hidden="true"></span><br />
+					<label class="" for="time">Time: </label>
+					<div class="">
+                        <input type="time" class="form-control"  required="required" for="time" id="inputSuccess2" placeholder="Time" name="time" value="<?php date_default_timezone_set('Asia/Manila'); echo  date("H:i"); ?>" id="time">
+                        <br />
                       </div>
                       </div>
 					  
+					  <div class="form-group has-feedback">
+					<label class="" for="">Mode of Payment: </label>
+					<div class="">
+                        <select class="form-control col-sm-4" name="vehicle" id="vehicle">
+							<option value="Cash">Cash</option>
+							<option value="COD">Cash on Delivery</option>
+							<option value="Sales Invoice">Sales Invoice</option>
+						</select>
+						<br/>
+                      </div>
+                      </div>
+					  
+					  <div>&nbsp;</div>
 		<div class="">
 		<label class="control-label col-sm-4">&nbsp;</label>
 	
@@ -123,7 +136,7 @@
 	 <div class="form-group">
                         <div class="">
                           <button class="btn btn-primary" type="button"  style="margin-left: -60px;"><a href="<?php echo base_url('knoxville/index')?>" style="color: white;">Cancel</a></button>
-                          <button type="submit" class="btn btn-success" value="submit" style="margin-right: 20px;">Submit</button>
+                          <button type="submit" class="btn btn-success" value="submit" style="margin-right: 20px; color: white;">Submit</button>
                         </div>
       </div>			  
 								  
