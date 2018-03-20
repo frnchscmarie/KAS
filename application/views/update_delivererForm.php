@@ -6,28 +6,62 @@
   <?php echo form_open('knoxville/updateDeliverer/'.$delivererID); //this is equal to <form method="post" accept-charset="utf-8" action="http://localhost/Knoxville-Auto-Supply/knoxville/addClient">
                                      //to add attributes, edit to: echo form('knoxville/addClient','class="lala" id="lala"'); 
   ?> 
-	<div>&nbsp;</div>
-   <h2 class="text-center">UPDATE DELIVERER</h2>
-   <div class="container ClientForm">
- 
-    <div>
-    <label class="control-label col-sm-4" for="vehicle">Vehicle:</label>
-    <input class="form-control col-sm-4"type="text" name="vehicle" id="vehicle" value="<?php echo $vehicle; ?>" />
-    </div>
+<div class="right_col" role="main">
+          <div class="">
+           
     
-    <div>
-    <label class="control-label col-sm-4" for="cnum">Contact Number:</label>
-    <input class="form-control col-sm-4"type="text" name="cnum" id="cnum" value="<?php echo $cnum; ?>" />
-    </div>
-    
-    <div class="text-center col-sm-6">
-    <label class="control-label" for="assigned">Assigned personnel
-	   <input class="form-control"type="text" name="assigned" id="assigned" value="<?php echo $assigned; ?>" />
-	</div>
-	<div class="col-sm-6">
-		<input class="subUpdate sround" type="submit" value="SUBMIT"/>
-	</div>
-  </form>
+    <div class="clearfix"></div>
+
+
+  
+  
+  <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel">
+                  <div class="x_title">
+                    <h3>Edit Deliverer</h3>
+                    <ul class="nav navbar-right panel_toolbox">
+                      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                      </li>
+                    </ul>
+                    <div class="clearfix"></div>
+               </div>
+                  <div class="x_content">
+                    <br />
+        <div class="col-md-6" style="padding: 10px; text-align: center; margin-left: 250px;">
+          <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
+               
+                      <div class="form-group has-feedback">
+                        <input type="text" class="form-control has-feedback-left" for="cname" id="inputSuccess2" placeholder="  Client Name" name="vehicle" id="vehicle" value="<?php echo $vehicle; ?>"/>
+                        <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
+                      </div>
+                  
+                      <div class="form-group has-feedback">
+                        <input type="text" class="form-control has-feedback-left" for="cname" id="inputSuccess2" placeholder="  Client Name" name="cnum" id="cnum" value="<?php echo $cnum; ?>" />
+                        <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
+                      </div>
+
+                      <div class="form-group has-feedback">
+                        <input type="text" class="form-control has-feedback-left" for="cname" id="inputSuccess2" placeholder="  Client Name" name="assigned" id="assigned" value="<?php echo $assigned; ?>" />
+                        <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
+                      </div>
+
+              	<div class="form-group">
+                        <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+                          <button class="btn btn-primary" type="button"><a href="<?php echo base_url('knoxville/viewClients')?>" style="color: white;">Cancel</a></button>
+                          <button class="btn btn-primary" type="reset">Reset</button>
+                          <button type="submit" class="btn btn-success" value="submit">Submit</button>
+                        </div>
+                      </div>
+                </form>
   </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+
 </body>
 </html>

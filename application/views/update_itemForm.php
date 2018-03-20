@@ -38,7 +38,7 @@
 					  
                       <div class=" form-group has-feedback">
 					   <label class="form" for="idesc">Stocks </label>
-                        <input type="text" class="form-control" for="stocks" id="inputSuccess2" placeholder="Stocks" name="stocks" value="<?php echo $stocks; ?>" id="stocks">
+                        <input type="text" class="form-control" for="price" id="inputSuccess2" placeholder="Price" name="price" value="<?php echo $price; ?>" id="price">
                       </div>
 		 
                       <div class="form-group">
