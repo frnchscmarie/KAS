@@ -18,17 +18,20 @@
 			<label>to</label>
 				<label class="control-label lefty"></label>
 			<input  class="form-control" type="text" name="location" placeholder="location" id="location" value="<?php echo $location; ?>"/>
+			<span class="required"></span>
 			</div>
 			<br />
 		
 			<div>
 				<label class="control-label col-sm-4">Date:</label>
 				<input  class="form-control col-sm-4" type="date" name="date" value="<?php echo $date; ?>" />
+				<span class="required"></span>
 			</div>
 			
 			<div>
 				<label class="control-label col-sm-4">Time: &nbsp;</label>
 				<input  class="form-control col-sm-4"  type="time" name="time" value="<?php echo date("H:i", strtotime($time)); ?>"/>
+				<span class="required"></span>
 			</div>
 			<br />
 		

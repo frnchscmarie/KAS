@@ -28,12 +28,14 @@
                       <div class="form-group has-feedback">
 					  <label class="form" for="idesc">Item Description </label>
                         <input type="text" class="form-control " for="idesc" id="inputSuccess2" name="idesc" value="<?php echo $idesc; ?>" id="idesc">
+						<span class="required"></span>
                       </div>
 					  
 					  
                       <div class=" form-group has-feedback">
 					   <label class="form" for="idesc">Stocks </label>
                         <input type="text" class="form-control" for="stocks" id="inputSuccess2" placeholder="Stocks" name="stocks" value="<?php echo $stocks; ?>" id="stocks">
+						<span class="required"></span>
                       </div>
 		 
                       <div class="form-group">

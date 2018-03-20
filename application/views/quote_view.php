@@ -35,22 +35,22 @@
 					  
 					  
                       <div class=" form-group has-feedback">
-                        <input type="text" class="form-control has-feedback-left" form="order" id="inputSuccess2" placeholder="Client ID" name="clientID" value="<?php echo $clientID; ?>" id="clientID">
+                        <input type="text" class="form-control has-feedback-left" required="required" form="order" id="inputSuccess2" placeholder="Client ID" name="clientID" value="<?php echo $clientID; ?>" id="clientID">
                         <span class="fa fa-home form-control-feedback left" aria-hidden="true"></span>
                       </div>
 
 		                  <div class="form-group has-feedback">
-                        <input type="date" class="form-control has-feedback-left" form="order" id="inputSuccess2" placeholder="Date:" name="date" value="<?php echo $date; ?>">
+                        <input type="date" class="form-control has-feedback-left" required="required" form="order" id="inputSuccess2" placeholder="Date:" name="date" value="<?php echo $date; ?>">
                         <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
                       </div>
 
                       <div class=" form-group has-feedback">
-                        <input type="time" class="form-control has-feedback-left" form="order" id="inputSuccess2" placeholder="Time: " name="time" value="<?php echo $time; ?>">
+                        <input type="time" class="form-control has-feedback-left" required="required" form="order" id="inputSuccess2" placeholder="Time: " name="time" value="<?php echo $time; ?>">
                         <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
                       </div>
 
 					           <div class=" form-group has-feedback">
-                        <input type="date" class="form-control has-feedback-left" form="order" id="inputSuccess2" placeholder="Due date " name="duedate" value="<?php echo $due; ?>">
+                        <input type="date" class="form-control has-feedback-left" required="required" form="order" id="inputSuccess2" placeholder="Due date " name="duedate" value="<?php echo $due; ?>">
                         <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
                       </div>
       

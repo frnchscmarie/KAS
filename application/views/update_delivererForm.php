@@ -34,19 +34,19 @@
                       <div class="form-group has-feedback">
 					   <label class="form" for="cname">Vehicle </label>
                         <input type="text" class="form-control has-feedback-left" for="cname" id="inputSuccess2" placeholder="  Client Name" name="vehicle" id="vehicle" value="<?php echo $vehicle; ?>"/>
-                        <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
+                        <span class="fa fa-user form-control-feedback left required" aria-hidden="true"></span>
                       </div>
                   
                       <div class="form-group has-feedback">
 					   <label class="form" for="idesc">Contact Number </label>
                         <input type="text" class="form-control has-feedback-left" for="cname" id="inputSuccess2" placeholder="  Client Name" name="cnum" id="cnum" value="<?php echo $cnum; ?>" />
-                        <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
+                        <span class="fa fa-user form-control-feedback left required" aria-hidden="true"></span>
                       </div>
 
                       <div class="form-group has-feedback">
 					   <label class="form" for="idesc">Personnel Assigned </label>
                         <input type="text" class="form-control has-feedback-left" for="cname" id="inputSuccess2" placeholder="  Client Name" name="assigned" id="assigned" value="<?php echo $assigned; ?>" />
-                        <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
+                        <span class="fa fa-user form-control-feedback left required" aria-hidden="true"></span>
                       </div>
 
               	<div class="form-group">

@@ -49,11 +49,13 @@
 		<div>
 		<label class="control-label col-sm-4" for="vehicle">Date:</label>
 		<input class="form-control col-sm-2" type="date" name="date" value="<?php echo date('Y-m-d'); ?> ">
+		<span class="required"></span>
 		</div>
 
 		<div>
 		<label class="control-label col-sm-4" for="vehicle">Time:</label>
 		<input class="form-control col-sm-2" type="time" name="time" value="<?php date_default_timezone_set('Asia/Manila'); echo  date("H:i"); ?>">
+		<span class="required"></span>
 		</div>
 		<br />
 		<div class="col-sm-12">

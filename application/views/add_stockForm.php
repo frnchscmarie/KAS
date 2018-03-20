@@ -39,13 +39,13 @@
           <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
 		
                       <div class="form-group has-feedback">
-                        <input type="text" class="form-control has-feedback-left" for="stocks" id="inputSuccess2" placeholder="Stock ID" name="stockID" value="<?php echo set_value('stockID'); ?>" id="stockID">
-                        <span class="fa fa-cube form-control-feedback left" aria-hidden="true"></span>
+                        <input type="text" class="form-control has-feedback-left" required="required" for="stocks" id="inputSuccess2" placeholder="Stock ID" name="stockID" value="<?php echo set_value('stockID'); ?>" id="stockID">
+                        <span class="fa fa-cube form-control-feedback left required" aria-hidden="true"></span>
                       </div>
 
                       <div class="form-group has-feedback">
-                        <input type="date" class="form-control has-feedback-left" for="stocks" id="inputSuccess2" placeholder="date"  name="date" value="<?php date_default_timezone_set('Asia/Manila'); echo date('Y-m-d'); ?>">
-                        <span class="fa fa-cube form-control-feedback left" aria-hidden="true"></span>
+                        <input type="date" class="form-control has-feedback-left" required="required" for="stocks" id="inputSuccess2" placeholder="date"  name="date" value="<?php date_default_timezone_set('Asia/Manila'); echo date('Y-m-d'); ?>">
+                        <span class="fa fa-cube form-control-feedback left required" aria-hidden="true"></span>
                       </div>
 
 
@@ -74,11 +74,11 @@
                                       $counter++;
                                           echo '<tr><td>'.$c['item_desc'].'</td>
                                               <td class="col-sm-2">             
-                                                  <input style="width: 100px;" type="number" form="stocks" class="form-control" id="quantity'.$counter.'"  name="quantity[]" value="0" disabled for/>
+                                                  <input style="width: 100px;" type="number" form="stocks" class="form-control" id="quantity'.$counter.'"  name="quantity[]" value="0" disabled for/><span class="required"></span>
                                               </td>
                                               
                                               <td>
-                                <input   style="margin: 15px;" type="checkbox" name="itemList[]" id="items'.$counter.'" value="'.$c['itemID'].'" onClick="toggle('."'items".$counter."'".', '."'quantity".$counter."'".')"  /></td>
+                                <input   style="margin: 15px;" type="checkbox" name="itemList[]" id="items'.$counter.'" value="'.$c['itemID'].'" onClick="toggle('."'items".$counter."'".', '."'quantity".$counter."'".')"  /><span class="required"></span></td>
                                               
                                               ';
                                               
