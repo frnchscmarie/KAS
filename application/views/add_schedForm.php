@@ -51,13 +51,13 @@
 		
 
 					<div class="form-group has-feedback">
-					<label class="control-label col-sm-4" for="date">Date</label>
+					<label class="control-label " for="date">Date: </label>
                         <input type="date" class="form-control has-feedback-left" required="required" for="date" id="inputSuccess2" placeholder="Date" name="date" value="<?php echo date('Y-m-d'); ?>" id="date">
                         <span class="fa fa-calendar form-control-feedback left required" aria-hidden="true"></span>
                       </div>
 					  
 					  <div class="form-group has-feedback">
-					<label class="control-label col-sm-4" for="time">Time</label>
+					<label class="control-label " for="time">Time: </label>
                         <input type="time" class="form-control has-feedback-left" required="required" for="time" id="inputSuccess2" placeholder="Time" name="time" value="<?php date_default_timezone_set('Asia/Manila'); echo  date("H:i"); ?>" id="time">
                         <span class="fa fa-clock-o form-control-feedback left required" aria-hidden="true"></span>
                       </div>

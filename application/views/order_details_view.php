@@ -64,13 +64,84 @@
             <div class="form-group" style="margin-left: 120px;">
                                   <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
                                     <button class="btn btn-primary"><a href="<?php echo base_url('knoxville/returnItem/'.$orderID);?>" style="color: white;">Return Item</a></button>
-                                    <button class="btn btn-success"><a href="" style="color: white;">Schedule for delivery</a></button>
+                                    <button class="btn btn-success"><a data-toggle="modal" data-target="#squarespaceModal"  >Schedule for delivery</a></button>
                                   </div>
+	 <div class="modal fade" id="squarespaceModal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+	<div class="modal-content">
+		<div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal" ><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+			<h3 class="modal-title" id="lineModalLabel">Add Schedule</h3>
+		</div>
+		<div class="modal-body">
+		<div>&nbsp;</div>
+					<div class="main_container">
+			<?php echo validation_errors(); ?>
+			<?php echo form_open('knoxville/addSched/'.$orderID,'id="delivery"'); //this is equal to <form method="post" accept-charset="utf-8" action="http://localhost/Knoxville-Auto-Supply/knoxville/addClient">
+											 //to add attributes, edit to: echo form('knoxville/addClient','class="lala" id="lala"'); 
+			?>
+		
+           
+  
+		<div class="col-sm-4" style="padding: 10px; text-align: center; margin-left: 200px;">
+		
+		<div class="ClientForm">
+	
+		<?php
+		echo '<select name="deliverer" form="order" style="margin-left: -20px;">';
+			echo '<option selected disabled hidden>Assigned Personnel</option>';
+			foreach($deliverer as $c){
+				echo '<option value="'.$c['delivererID'].'">'.$c['assigned'].'</option>';
+			}
+		echo '</select>';
+		?>
+    </div>
+         <div>&nbsp;</div>
+		
+
+					<div class="form-group has-feedback">
+					<label class="control-label col-md-4 col-sm-4 col-xs-12" for="date">Date: </label>
+					<div class="col-md-8 col-sm-8 col-xs-12">
+                        <input type="date" class="form-control has-feedback-left" required="required" for="date" id="inputSuccess2" placeholder="Date" name="date" value="<?php echo date('Y-m-d'); ?>" id="date">
+                        <span class="fa fa-calendar form-control-feedback left required" aria-hidden="true"></span><br />
+                      </div>
+                      </div>
+					  
+					<div class="form-group has-feedback">
+					<label class="control-label col-md-4 col-sm-4 col-xs-12" for="time">Time: </label>
+					<div class="col-md-8 col-sm-8 col-xs-12">
+                        <input type="time" class="form-control has-feedback-left" required="required" for="time" id="inputSuccess2" placeholder="Time" name="time" value="<?php date_default_timezone_set('Asia/Manila'); echo  date("H:i"); ?>" id="time">
+                        <span class="fa fa-clock-o form-control-feedback left required" aria-hidden="true"></span><br />
+                      </div>
+                      </div>
+					  
+		<div class="">
+		<label class="control-label col-sm-4">&nbsp;</label>
+	
+    </div>
+	
+	 <div class="form-group">
+                        <div class="">
+                          <button class="btn btn-primary" type="button"  style="margin-left: -60px;"><a href="<?php echo base_url('knoxville/index')?>" style="color: white;">Cancel</a></button>
+                          <button type="submit" class="btn btn-success" value="submit" style="margin-right: 20px;">Submit</button>
+                        </div>
+      </div>			  
+								  
                                 </div>
             </div>
 
             </div>
             </div>
+            </div>
+            </div>
+            </div>
+            </div>
+            </div>
+            
+           
+        
+            
+          
 
             <div class="col-md-6 col-sm-6 col-xs-12">
                 <div class="x_panel">
@@ -183,6 +254,8 @@
        </div>
 
   </div>
+    </div>
+    </div>
     </div>
 
 </body>
