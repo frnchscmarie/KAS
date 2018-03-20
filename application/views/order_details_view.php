@@ -26,43 +26,45 @@
                </div>
                   <div class="x_content">
                     <br />
-          <div class="col-md-4" style="padding: 10px; text-align: center; margin-left: 250px;">
+          <div class="col-md-4" style="padding: 10px; text-align: center; margin-left: 350px;">
                     <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
 
                                 <div class="form-group has-feedback">
-                                  <label><?php echo $orderID?></label>
-                                  <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
+                                  <label>Order ID: </label>
+                                  <label><span class="fa fa-cube form-control-feedback left" aria-hidden="true"></span><?php echo $orderID?></label>
                                 </div>
 
                                 <div class="form-group has-feedback">
-                                  <label><?php echo $clientID?></label>
-                                  <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
+                                  <label>Client ID: </label>
+                                  <label><span class="fa fa-user form-control-feedback left" aria-hidden="true"></span><?php echo $clientID?></label>
                                 </div>
               
                                 <div class="form-group has-feedback">
-                                  <label><?php echo $date?></label>
-                                  <span class="fa fa-book form-control-feedback left" aria-hidden="true"></span>
+                                  <label>Date: </label>
+                                  <label><span class="fa fa-calendar form-control-feedback left" aria-hidden="true"></span><?php echo $date?></label>
                                 </div>
                       
                                <div class="form-group has-feedback">
-                                 <label><?php echo $time?></label>
-                                  <span class="fa fa-cube form-control-feedback left" aria-hidden="true"></span>
+                                 <label>Time: </label>
+                                  <label><span class="fa fa-clock-o form-control-feedback left" aria-hidden="true"></span><?php echo $time?></label>
                                 </div>
 
                                 <div class="form-group has-feedback">
-                                 <label><?php echo $due?></label>
-                                  <span class="fa fa-cube form-control-feedback left" aria-hidden="true"></span>
+                                 <label>Due Date: </label>
+                                  <label><span class="fa  fa-info form-control-feedback left" aria-hidden="true"></span><?php echo $due?></label>
                                 </div>
 
                                
                                 
             </form>
             </div>
+			<div>&nbsp;</div>
+			<div>&nbsp;</div>
               
-            <div class="form-group">
+            <div class="form-group" style="margin-left: 120px;">
                                   <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
-                                    <button class="btn btn-primary"><a href="<?php echo base_url('knoxville/returnItem/'.$orderID);?>">Return Item</a></button>
-                                    <button class="btn btn-success"><a href="">Schedule for delivery</a></button>
+                                    <button class="btn btn-primary"><a href="<?php echo base_url('knoxville/returnItem/'.$orderID);?>" style="color: white;">Return Item</a></button>
+                                    <button class="btn btn-success"><a href="" style="color: white;">Schedule for delivery</a></button>
                                   </div>
                                 </div>
             </div>
@@ -95,7 +97,7 @@
       <tbody>
         <?php
         $totalPrice = 0;
-         
+         if($purchased!=null){
           foreach($purchased as $t){ //Array ( [clientID] => 1 [client_name] => dsa [address] => dsa [contact_no] => 123 ) 
             echo "<tr><td>";
             foreach($items as $i)
@@ -106,6 +108,7 @@
             echo '</td><td>&#x20B1;'.number_format($t['unit_price']).'</td><td>'.$t['quantity'].'</td></tr>';
             //echo base_url('knoxville/delClient/'.c['clientID'])
             }
+		 }
 
             echo '<p><b>Subtotal: &#x20B1;</b> '. number_format($totalPrice)."</p>";
         ?>
