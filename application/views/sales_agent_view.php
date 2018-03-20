@@ -103,7 +103,7 @@
                       </li>
                     </ul>
                     <div class="clearfix"></div>
-                  </div>
+                  
                   <div class="x_content">
                     <p class="text-muted font-13 m-b-30">
                       Manage all the Sales Agents here.
@@ -111,17 +111,6 @@
                     <table id="datatable" class="table table-striped table-bordered">
                       <thead>
 	
-	<div id="table">
-    <div id="myModal" class="modal fade" role="dialog">
-        <div class="modal-dialog">
-            <div class="modal-content">
-            </div>
-        </div>
-    </div>
-    
-        <div class="table-responsive">
-            <table id="datatable-fixed-header" class="table table-striped">
-                <thead>
                     <tr id="trHead">
 						<th >User ID</th>
 						<th >Password</th>
@@ -148,5 +137,9 @@
 </div>
 </div>
 </div>
+</div>
+
+
+
 </body>
 </html>
