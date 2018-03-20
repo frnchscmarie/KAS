@@ -255,6 +255,7 @@
                     <div class="clearfix"></div>
                   
                   <div class="x_content">
+				  <div>&nbsp;</div>
                     <div class="">
                     <table id="datatable" class="table table-striped table-bordered">
                       <thead>
