@@ -15,7 +15,7 @@
             <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                   <div class="x_title">
-                    <h3>Add Client</h3>
+                    <h3>Add Schedule</h3>
                     <ul class="nav navbar-right panel_toolbox">
                       <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                       </li>
@@ -34,31 +34,44 @@
                     <div class="clearfix"></div>
                </div><div class="x_content">
                     <br />
-		<div class="col-md-4" style="padding: 10px; text-align: center; margin-left: 350px;">
-         
-			<label class="control-label col-md-4"></label>
-				<?php
-		echo '<select name="deliverer" form="order">';
+		<div class="col-sm-4" style="padding: 10px; text-align: center; margin-left: 350px;">
+		
+		<div class="ClientForm">
+	
+		<?php
+		echo '<select name="deliverer" form="order" style="margin-left: -20px;">';
 			echo '<option selected disabled hidden>Assigned Personnel</option>';
 			foreach($deliverer as $c){
 				echo '<option value="'.$c['delivererID'].'">'.$c['assigned'].'</option>';
 			}
 		echo '</select>';
 		?>
+    </div>
+         <div>&nbsp;</div>
 		
-		<div>
-		<label class="control-label col-sm-4" for="vehicle">Date:</label>
-		<input class="form-control col-sm-2" type="date" name="date" value="<?php echo date('Y-m-d'); ?> ">
-		</div>
-
-		<div>
-		<label class="control-label col-sm-4" for="vehicle">Time:</label>
-		<input class="form-control col-sm-2" type="time" name="time" value="<?php date_default_timezone_set('Asia/Manila'); echo  date("H:i"); ?>">
-		</div>
-		<br />
-		<div class="col-sm-12">
-		<input class="subUpdate" type="submit" value="SUBMIT"/>
-	</div>
+					<div class="form-group has-feedback">
+					<label class="control-label col-sm-4" for="date">Date</label>
+                        <input type="date" class="form-control has-feedback-left" for="date" id="inputSuccess2" placeholder="Date" name="date" value="<?php echo date('Y-m-d'); ?>" id="date">
+                        <span class="fa fa-calendar form-control-feedback left" aria-hidden="true"></span>
+                      </div>
+					  
+					  <div class="form-group has-feedback">
+					<label class="control-label col-sm-4" for="time">Time</label>
+                        <input type="time" class="form-control has-feedback-left" for="time" id="inputSuccess2" placeholder="Time" name="time" value="<?php date_default_timezone_set('Asia/Manila'); echo  date("H:i"); ?>" id="time">
+                        <span class="fa fa-clock-o form-control-feedback left" aria-hidden="true"></span>
+                      </div>
+					  
+		<div class="">
+		<label class="control-label col-sm-4">&nbsp;</label>
+	
+    </div>
+	
+	 <div class="form-group">
+                        <div class="">
+                          <button class="btn btn-primary" type="button"  style="margin-left: -60px;"><a href="<?php echo base_url('knoxville/index')?>" style="color: white;">Cancel</a></button>
+                          <button type="submit" class="btn btn-success" value="submit" style="margin-right: 20px;">Submit</button>
+                        </div>
+      </div>
 		
 	
 		</form>	
