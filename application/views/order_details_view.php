@@ -19,8 +19,7 @@
                   <div class="x_title">
                     <h3>Order Purchased Details</h3>
                     <ul class="nav navbar-right panel_toolbox">
-                      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                      </li>
+                      
                     </ul>
                     <div class="clearfix"></div>
                </div>
@@ -169,8 +168,7 @@
                   <div class="x_title">
                     <h3>Purchased Items</h3>
                     <ul class="nav navbar-right panel_toolbox">
-                      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                      </li>
+                      
                     </ul>
                     <div class="clearfix"></div>
                </div>
@@ -220,8 +218,7 @@
                   <div class="x_title">
                     <h3>Returned Items</h3>
                     <ul class="nav navbar-right panel_toolbox">
-                      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                      </li>
+                      
                     </ul>
                     <div class="clearfix"></div>
                </div>
@@ -274,9 +271,9 @@
                   <div class="x_title">
                     <h3>Shipment Status</h3>
                     <ul class="nav navbar-right panel_toolbox">
-                      <li><a data-toggle="modal" data-target="#Modal">Add Shipment Status</a>
-                         </li></ul>        
-                                    </div>
+                      <li><a data-toggle="modal" data-target="#Modal"><i class="fa fa-plus"></i>Add Shipment Status</a>
+                              
+                                   
    <div class="modal fade" id="Modal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
   <div class="modal-dialog">
   <div class="modal-content">
@@ -304,14 +301,14 @@
     </select>
     
     <label>to</label>
-    <input type="text" name="location" placeholder="location" id="location"/>
+    <input type="text" name="location" placeholder="location" id="location" required="required"/>
     <span class="required"></span>
     <br />
     <label>Date:</label>
-    <input type="date" name="date" value="<?php echo date('Y-m-d'); ?>" />
+    <input type="date" name="date" value="<?php echo date('Y-m-d'); ?>" required="required"/>
     <span class="required"></span>
     <label>Time: &nbsp;</label>   
-    <input type="time" name="time" value="<?php date_default_timezone_set('Asia/Manila'); echo  date("H:i"); ?>"/>
+    <input type="time" name="time" value="<?php date_default_timezone_set('Asia/Manila'); echo  date("H:i"); ?>" required="required"/>
     <span class="required"></span>
         <br />
   
@@ -333,13 +330,12 @@
             </div>
             </div>
             </div>
-            </div>
-            </div>
-            </div>
+           
+            
             
            
            
-           
+           </li></ul>   
 
                 
                     <div class="clearfix"></div>
@@ -382,7 +378,10 @@
         
       </tbody>
     </table>
-
+</div>
+ </div>
+ </div>
+            </div>
   </div>
     </div>
   </div>
