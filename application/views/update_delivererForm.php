@@ -48,7 +48,7 @@
 
               	<div class="form-group">
                         <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
-                          <button class="btn btn-primary" type="button"><a href="<?php echo base_url('knoxville/viewClients')?>" style="color: white;">Cancel</a></button>
+                          <button class="btn btn-primary" type="button"><a href="<?php echo base_url('knoxville/viewDeliverer')?>" style="color: white;">Cancel</a></button>
                           <button class="btn btn-primary" type="reset">Reset</button>
                           <button type="submit" class="btn btn-success" value="submit">Submit</button>
                         </div>
