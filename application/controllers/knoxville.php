@@ -736,6 +736,8 @@ class Knoxville extends CI_Controller {
         $condition = array('orderID' => $orderID);
         $orderRec = $this->Order->read($condition);
         $returnRec = $this->return->read($condition);
+        $data['shipment'] = $this->Shipment->read($condition);
+        $data['shipStat'] = $this->ShipStatus->read($condition);
         $data['orderID'] = $orderID;
         if($orderRec!=false){
             foreach($orderRec as $o){
@@ -750,6 +752,7 @@ class Knoxville extends CI_Controller {
         $data['returnI'] = $returnRec;
         $data['purchased'] = $this->purchase->read($condition);
         $data['items'] = $this->Item->read();
+        $data['deliverer'] = $this->Deliverer->read();
         $header_data['title'] = "Order#$orderID: Order Details";
         $this->load->view('include/header',$header_data);
         $this->load->view('order_details_view',$data);
@@ -885,17 +888,16 @@ class Knoxville extends CI_Controller {
             $this->load->view('include/footer');
         }
         else{
-        $ShipRecord=array('delivererID'=>$_POST['deliverer'],'orderID'=>$orderID);
+        $ShipRecord=array('delivererID'=>$_POST['deliverer'],'orderID'=>$orderID,'MOP'=>$_POST['mop']);
         $this->Shipment->create($ShipRecord);
         $shipID=$this->Shipment->getLastRecordID();
-        $ShipStatus=array('shipID'=>$shipID,'date'=>$_POST['date'],'time'=>$_POST['time'],'status'=>'Scheduled');
+        $ShipStatus=array('orderID'=>$orderID,'date'=>$_POST['date'],'time'=>$_POST['time'],'status'=>'Scheduled');
         $this->ShipStatus->create($ShipStatus);
         redirect('knoxville/viewTransaction/'.$orderID.'');
         }
     }
-    
-    public function addDeliveryStatus($orderID,$shipID){
-        $data['shipID']=$shipID;
+
+    public function addDeliveryStatus($orderID){
         $header_data['title'] = "Schedule For Delivery";
         $condition = array('orderID'=>$orderID);
         $orderRec = $this->Order->read($condition);
@@ -915,17 +917,17 @@ class Knoxville extends CI_Controller {
         }
          }   
          $rules = array(
-                    array('field'=>'status', 'label'=>'Status', 'rules'=>'required'),
-                    array('field'=>'location', 'label'=>'Location', 'rules'=>'required'),
+                   array('field'=>'status', 'label'=>'Status', 'rules'=>'required'),
+                   array('field'=>'location', 'label'=>'Location', 'rules'=>'required'),
                 );
         $this->form_validation->set_rules($rules);
         if($this->form_validation->run()==FALSE){
             $this->load->view('include/header',$header_data);
-            $this->load->view('add_DeliveryStatus',$data);
-            $this->load->view('include/footer');
-        }
-        else{
-            $ShipStatus=array('shipID'=>$shipID,'date'=>$_POST['date'],'time'=>$_POST['time'],'status'=>$_POST['status'],'location' => $_POST['location']);
+            $this->load->view('order_details_view',$data);
+           $this->load->view('include/footer');
+       }
+       else{
+            $ShipStatus=array('orderID'=>$orderID,'date'=>$_POST['date'],'time'=>$_POST['time'],'status'=>$_POST['status'],'location' => $_POST['location']);
             $this->ShipStatus->create($ShipStatus);
             redirect('knoxville/viewTransaction/'.$orderID.'');
         }
