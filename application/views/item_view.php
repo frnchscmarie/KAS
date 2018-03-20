@@ -7,7 +7,6 @@
           <div class="">
     
     <div class="clearfix"></div>
-
             <div class="row">
               <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
@@ -17,9 +16,7 @@
                       <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                       </li>
 					  <li><a data-toggle="modal" data-target="#squarespaceModal" class="butt5" ><i class="fa fa-plus"></i> Add Item </a>
-					  
-					  	
-
+	<!--start of modal-->				  
 <div class="modal fade" id="squarespaceModal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
   <div class="modal-dialog">
 	<div class="modal-content">
@@ -42,7 +39,7 @@
 		
                       <div class="form-group has-feedback">
                         <input type="text" class="form-control has-feedback-left" for="price" id="inputSuccess2" placeholder="Price" name="price" value="<?php echo set_value('price'); ?>" id="price">
-                        <span class="fa fa-cube form-control-feedback left" aria-hidden="true"></span>
+                        <span class="fa fa-money form-control-feedback left" aria-hidden="true"></span>
                       </div>
 
     
@@ -69,14 +66,13 @@
                       </li>
                     </ul>
                     <div class="clearfix"></div>
-                  </div>
-					  
-					  
+   </div> <!--end of modal-->
+ 
                       </li>
 					  
                     </ul>
                     <div class="clearfix"></div>
-                  </div>
+                 
                   <div class="x_content">
                     <p class="text-muted font-13 m-b-30">
                       Manage all the items.
@@ -100,11 +96,8 @@
         </tbody>
     </table>
     </div>
-</div>
-</div>
-
-
-<div class="col-md-12 col-sm-12 col-xs-12">
+<!--start of stock table-->
+	<div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                   <div class="x_title">
                     <h2>Stocks</h2>
@@ -148,17 +141,22 @@
             }
                   
             ?>
-        </tbody>
-    </table>
-    </div>
+						</tbody>
+							</table>
+							</div>
+					</div>
+</div>
 </div>
 </div>
 
-</div>
 
 
-    </div>
-</div>
+
+			</div>
+
+
+			</div>
+		</div>
 
     </div>
 </div>
