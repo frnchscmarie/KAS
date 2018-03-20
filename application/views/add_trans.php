@@ -8,9 +8,11 @@
 	?>
 	<div class="form-group">
 		<label class="date-label" for="date">Date(dd/mm/yyyy):&nbsp; </label>
- 		<input type="date" name="date" value="<?php echo date('Y-m-d'); ?>" />		 
+ 		<input type="date" name="date" value="<?php echo date('Y-m-d'); ?>" />	
+		<span class="required"></span>		
  		<label class="date-label" for="date">Time: &nbsp;</label>		
 		<input type="time" name="time" value="<?php date_default_timezone_set('Asia/Manila'); echo  date("H:i"); ?>"/>
+		<span class="required"></span>
 		
     </div>
 	Search: <input type="text" id="myInput" onkeyup="Transaction()" placeholder="Type any value" title="Type ANY value">
@@ -48,13 +50,13 @@
 						echo '</td>
 							<td class="col-sm-2">
 
-								<input type="price" class="form-control" id="price'.$counter.'" value="'.$c['unit_price'].'" name="price[]">
+								<input type="price" class="form-control" id="price'.$counter.'" value="'.$c['unit_price'].'" name="price[]"><span class="required"></span>
 							</td>
 							<td class="col-sm-2">							
-								<input type="quantity" class="form-control" id="quantity'.$counter.'"  name="quantity[]" value="'.$c['quantity'].'">
+								<input type="quantity" class="form-control" id="quantity'.$counter.'"  name="quantity[]" value="'.$c['quantity'].'"><span class="required"></span>
 							</td>
 							
-							<td><input type="checkbox" name="itemList[]" id="items'.$counter.'" value="'.$c['itemID'].'" onClick="toggle2('."'items".$counter."'".', '."'price".$counter."'".', '."'quantity".$counter."'".')"  checked/></td>
+							<td><input type="checkbox" name="itemList[]" id="items'.$counter.'" value="'.$c['itemID'].'" onClick="toggle2('."'items".$counter."'".', '."'price".$counter."'".', '."'quantity".$counter."'".')"  checked/><span class="required"></span></td>
 							
 							
 							';
@@ -73,13 +75,13 @@
 					echo '<tr><td>'.$i['item_desc'].'</td>
 						<td class="col-sm-2">
 
-							<input type="price" class="form-control" id="price'.$counter.'" value="0" name="price[]" disabled />
+							<input type="price" class="form-control" id="price'.$counter.'" value="0" name="price[]" disabled /><span class="required"></span>
 						</td>
 						<td class="col-sm-2">							
-							<input type="quantity" class="form-control" id="quantity'.$counter.'"  name="quantity[]" value="0" disabled />
+							<input type="quantity" class="form-control" id="quantity'.$counter.'"  name="quantity[]" value="0" disabled /><span class="required"></span>
 						</td>
 						
-						<td><input type="checkbox" name="itemList[]" id="items'.$counter.'" value="'.$i['itemID'].'" onClick="toggle2('."'items".$counter."'".', '."'price".$counter."'".', '."'quantity".$counter."'".')"/></td>
+						<td><input type="checkbox" name="itemList[]" id="items'.$counter.'" value="'.$i['itemID'].'" onClick="toggle2('."'items".$counter."'".', '."'price".$counter."'".', '."'quantity".$counter."'".')"/><span class="required"></span></td>
 						
 						
 						';

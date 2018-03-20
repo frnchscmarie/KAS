@@ -39,12 +39,12 @@
 
                       <div class="form-group has-feedback">
                         <input type="text" class="form-control has-feedback-left" for="idesc" id="inputSuccess2" placeholder="Item Description" name="idesc" value="<?php echo set_value('idesc'); ?>" id="idesc">
-                        <span class="fa fa-book form-control-feedback left" aria-hidden="true"></span>
+                        <span class="fa fa-book form-control-feedback left required" aria-hidden="true"></span>
                       </div>
 		
                       <div class="form-group has-feedback">
                         <input type="text" class="form-control has-feedback-left" for="price" id="inputSuccess2" placeholder="Price" name="price" value="<?php echo set_value('price'); ?>" id="price">
-                        <span class="fa fa-cube form-control-feedback left" aria-hidden="true"></span>
+                        <span class="fa fa-cube form-control-feedback left required" aria-hidden="true"></span>
                       </div>
 
                       <div class="form-group">

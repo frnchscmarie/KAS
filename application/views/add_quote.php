@@ -55,17 +55,17 @@
 		
                         <div class="form-group has-feedback">
                         <input type="date" class="form-control has-feedback-left" for="cnum" id="inputSuccess2" placeholder="Date:" name="date" value="<?php echo date('Y-m-d'); ?>">
-                        <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
+                        <span class="fa fa-user form-control-feedback left required" aria-hidden="true"></span>
                       </div>
 
                       <div class=" form-group has-feedback">
                         <input type="time" form="quote" class="form-control has-feedback-left" for="caddress" id="inputSuccess2" placeholder="Time: " name="time" value="<?php date_default_timezone_set('Asia/Manila'); echo date("H:i"); ?>">
-                        <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
+                        <span class="fa fa-user form-control-feedback left required" aria-hidden="true"></span>
                       </div>
 					  
 					  <div class=" form-group has-feedback">
                         <input type="date" class="form-control has-feedback-left" for="caddress" id="inputSuccess2" placeholder="Due date " name="duedate" value="<?php echo date('Y-m-d', strtotime( date('Y-m-d'). ' + 7 days'))?>">
-                        <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
+                        <span class="fa fa-user form-control-feedback left required" aria-hidden="true"></span>
                       </div>
 					  
 					  <div class="search1">
@@ -98,13 +98,15 @@
                             <td class="col-sm-2" >
 
                                 <input style="width: 100px;" type="number" form="quote" class="form-control" id="price'.$counter.'"  name="price[]" value="0" disabled />
+								<span class="required"></span>
                             </td>
                             <td class="col-sm-2">							
                                 <input style="width: 100px;" type="number" form="quote" class="form-control" id="quantity'.$counter.'"  name="quantity[]" value="0" disabled />
+								<span class="required"></span>
                             </td>
                             
                             <td>
-							<input   style="margin: 15px;" type="checkbox" name="itemList[]" id="items'.$counter.'" value="'.$c['itemID'].'" onClick="toggle('."'items".$counter."'".', '."'price".$counter."'".', '."'quantity".$counter."'".')"  /></td>
+							<input   style="margin: 15px;" type="checkbox" name="itemList[]" id="items'.$counter.'" value="'.$c['itemID'].'" onClick="toggle('."'items".$counter."'".', '."'price".$counter."'".', '."'quantity".$counter."'".')"  /><span class="required"></span></td>
                             
                             ';
                             

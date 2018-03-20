@@ -8,21 +8,23 @@
 	?>
 	<div class="form-group">
 		<label class="date-label" for="date">Date(dd/mm/yyyy):&nbsp; </label>
- 		<input type="date" name="date" value="<?php echo date('Y-m-d'); ?>" />		 
+ 		<input type="date" name="date" value="<?php echo date('Y-m-d'); ?>" />
+		<span class="required"></span>		
  		<label class="date-label" for="date">Time: &nbsp;</label>		
 		<input type="time" name="time" value="<?php date_default_timezone_set('Asia/Manila'); echo  date("H:i"); ?>"/>
+		<span class="required"></span>
     </div>
 	<table class="table">
                 <thead>
                     <tr id="trHead">
-						<th class="info">Item Description</th>
-						<th class="info">
+						<th >Item Description</th>
+						<th >
 						<label for="price">Price</label></th>
-						<th class="info">
+						<th >
 						<label for="price">Quantity</label></th>
-						<th class="info">
+						<th ">
 						<label for="trans">Cancel/Return</label></th>
-						<th class="info">
+						<th >
 						<label for="itemList[]">ADD</th>
 					</tr></thead>
 					

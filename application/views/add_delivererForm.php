@@ -12,16 +12,19 @@
     <div>
 		<label class="control-label col-sm-4" for="vehicle">Vehicle:</label>
 		<input class="form-control col-sm-4" type="text" name="vehicle" id="vehicle" />
+		<span class="required"></span>
     </div>
     
     <div>
 		<label class="control-label col-sm-4" for="cnum">Contact Number:</label>
 		<input class="form-control col-sm-4" type="text" name="cnum" id="cnum" />
+		<span class="required"></span>
     </div>
     
     <div class="text-center col-sm-6">
 		<label class="control-label" for="assigned">Assigned personnel</label>
 	    <input class="form-control" type="text" name="assigned" id="assigned" />
+		<span class="required"></span>
 	</div>
 	
 	<div class="col-sm-6">

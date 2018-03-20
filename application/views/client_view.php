@@ -35,17 +35,17 @@
   ?> 
   
 					<div class="form-group has-feedback">
-                        <input type="text" class="form-control has-feedback-left" for="cname" id="inputSuccess2" placeholder="Company Name" name="cname" value="<?php echo set_value('cname'); ?>" id="cname">
+                        <input type="text" class="form-control has-feedback-left" required="required" for="cname" id="inputSuccess2" placeholder="Company Name" name="cname" value="<?php echo set_value('cname'); ?>" id="cname">
                         <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
                       </div>
 					  
 					  <div class="form-group has-feedback">
-                        <input type="text" class="form-control has-feedback-left" for="caddress" id="inputSuccess2" placeholder="Company Address" name="caddress" value="<?php echo set_value('caddress'); ?>" id="caddress">
+                        <input type="text" class="form-control has-feedback-left" required="required" for="caddress" id="inputSuccess2" placeholder="Company Address" name="caddress" value="<?php echo set_value('caddress'); ?>" id="caddress">
                         <span class="fa fa-thumb-tack form-control-feedback left" aria-hidden="true"></span>
                       </div>
 					  
 					  <div class="form-group has-feedback">
-                        <input type="text" class="form-control has-feedback-left" for="cnum" id="inputSuccess2" placeholder="Contact Number" name="cnum" value="<?php echo set_value('cnum'); ?>" id="cnum">
+                        <input type="text" class="form-control has-feedback-left" required="required" for="cnum" id="inputSuccess2" placeholder="Contact Number" name="cnum" value="<?php echo set_value('cnum'); ?>" id="cnum">
                         <span class="fa fa-phone form-control-feedback left" aria-hidden="true"></span>
                       </div>
 

@@ -16,11 +16,14 @@
 		
 		<label>to</label>
  		<input type="text" name="location" placeholder="location" id="location"/>
+		<span class="required"></span>
 		<br />
 		<label>Date:</label>
  		<input type="date" name="date" value="<?php echo date('Y-m-d'); ?>" />
+		<span class="required"></span>
  		<label>Time: &nbsp;</label>		
 		<input type="time" name="time" value="<?php date_default_timezone_set('Asia/Manila'); echo  date("H:i"); ?>"/>
+		<span class="required"></span>
         <br />
 		<input class="subUpdate" type="submit">
 	</form>

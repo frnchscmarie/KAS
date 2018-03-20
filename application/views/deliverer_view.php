@@ -37,12 +37,12 @@
   ?> 
     <div class="ClientForm">
     <label class="control-label col-sm-4" for="vehicle">Deliverer ID:</label>
-    <input class="form-control col-sm-4" type="text" name="delivererID" id="delivererID" value="<?php echo date("y").'-003-'.str_pad($id, 3, '0', STR_PAD_LEFT) ?>" readonly="readonly"/>
+    <input class="form-control col-sm-4" type="text" name="delivererID" id="delivererID"  required="required" value="<?php echo date("y").'-003-'.str_pad($id, 3, '0', STR_PAD_LEFT) ?>" readonly="readonly"/>
     </div>
 
 	 <div class="ClientForm">
 		<label class="control-label col-sm-4" for="assigned">Assigned personnel </label>
-	    <input class="form-control col-sm-4" type="text" name="assigned" id="assigned" placeholder="Name of personnel" />
+	    <input class="form-control col-sm-4" type="text" name="assigned" id="assigned" required="required"  placeholder="Name of personnel" />
 	</div>
 	
     <div class="ClientForm">
@@ -59,7 +59,7 @@
     
     <div class="ClientForm">
 		<label class="control-label col-sm-4" for="cnum">Contact Number:</label>
-		<input class="form-control col-sm-4" type="text" name="cnum" id="cnum" placeholder="09-XXX-XXX-XXX" />
+		<input class="form-control col-sm-4" type="text" name="cnum" id="cnum" required="required"  placeholder="09-XXX-XXX-XXX" />
     </div>
     
 	

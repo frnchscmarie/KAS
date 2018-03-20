@@ -35,34 +35,34 @@
 
                       <div class="form-group has-feedback">
                         <input type="text" class="form-control has-feedback-left" for="userID" id="inputSuccess2" placeholder="User ID" name="userID" value="<?php echo $userID; ?>" id="userID">
-                        <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
+                        <span class="fa fa-user form-control-feedback left required" aria-hidden="true"></span>
                       </div>
 					  
 					  
                       <div class=" form-group has-feedback">
                         <input type="password" class="form-control has-feedback-left" for="pass" id="inputSuccess2" placeholder="Password" name="pass" value="<?php echo $pass; ?>" id="caddress">
-                        <span class="fa fa-home form-control-feedback left" aria-hidden="true"></span>
+                        <span class="fa fa-home form-control-feedback left required" aria-hidden="true"></span>
                       </div>
 		
                       <div class="form-group has-feedback">
                         <input type="text" class="form-control has-feedback-left" for="name" id="inputSuccess2" placeholder="Name" name="name" value="<?php echo $name; ?>" id="name">
-                        <span class="fa fa-male form-control-feedback left" aria-hidden="true"></span>
+                        <span class="fa fa-male form-control-feedback left required" aria-hidden="true"></span>
                       </div>
 					  
 					  <div class="form-group has-feedback">
                         <input type="text" class="form-control has-feedback-left" for="bday" id="inputSuccess2" placeholder="Birthdate" name="bday" value="<?php echo $bday; ?>" id="bday">
-                        <span class="fa fa-birthday-cake form-control-feedback left" aria-hidden="true"></span>
+                        <span class="fa fa-birthday-cake form-control-feedback left required" aria-hidden="true"></span>
                       </div>
 					  
 					   <div class="form-group has-feedback">
                         <input type="text" class="form-control has-feedback-left" for="email" id="inputSuccess2" placeholder="Email" name="email" value="<?php echo $email; ?>" id="email">
-                        <span class="fa fa-at form-control-feedback left" aria-hidden="true"></span>
+                        <span class="fa fa-at form-control-feedback left required" aria-hidden="true"></span>
                       </div>
 						`
 					  
 					   <div class="form-group has-feedback">
                         <input type="text" class="form-control has-feedback-left" for="cnum" id="inputSuccess2" placeholder="Contact Number" name="cnum" value="<?php echo $cnum; ?>" id="cnum">
-                        <span class="fa fa-mobile form-control-feedback left" aria-hidden="true"></span>
+                        <span class="fa fa-mobile form-control-feedback left required" aria-hidden="true"></span>
                       </div>
 
 

@@ -8,9 +8,11 @@
 	<div class="container ClientForm">
 	<div class="form-group">
 		<label class="control-label col-sm-4" for="date">Date:&nbsp; </label>
- 		<input class="form-control col-sm-4" type="date" name="date" value="<?php echo date('Y-m-d'); ?>" />		 
+ 		<input class="form-control col-sm-4" type="date" name="date" value="<?php echo date('Y-m-d'); ?>" />	
+		<span class="required"></span>
  		<label class="control-label col-sm-4" for="date">Time: &nbsp;</label>		
 		<input class="form-control col-sm-4" type="time" name="time" value="<?php date_default_timezone_set('Asia/Manila'); echo  date("H:i"); ?>"/>
+		<span class="required"></span>
     </div>
 
 	<div>Search: <input type="text" id="myInput" onkeyup="Trans()" placeholder="Type any value" title="Type ANY value"></div>
@@ -50,12 +52,15 @@
 							<td class="col-sm-4">
 
 								<input type="number" class="form-control" id="price'.$counter.'" value="'.$Q['unit_price'].'" name="price[]">
+								<span class="required"></span>
 							</td>
 							<td class="col-sm-4">							
 								<input type="number" class="form-control" id="quantity'.$counter.'"  name="quantity[]" value="'.$Q['quantity'].'">
+								<span class="required"></span>
 							</td>
 							
 							<td><input type="checkbox" name="itemList[]" id="items'.$counter.'" value="'.$Q['itemID'].'" onClick="toggle2('."'items".$counter."'".', '."'price".$counter."'".', '."'quantity".$counter."'".')"  checked/></td>
+							<span class="required"></span>
 							
 							
 							';
@@ -75,12 +80,15 @@
 						<td class="col-sm-2">
 
 							<input type="price" class="form-control" id="price'.$counter.'" value="0" name="price[]" disabled />
+							<span class="required"></span>
 						</td>
 						<td class="col-sm-2">							
 							<input type="quantity" class="form-control" id="quantity'.$counter.'"  name="quantity[]" value="0" disabled />
+							<span class="required"></span>
 						</td>
 						
 						<td><input type="checkbox" name="itemList[]" id="items'.$counter.'" value="'.$i['itemID'].'" onClick="toggle2('."'items".$counter."'".', '."'price".$counter."'".', '."'quantity".$counter."'".')"/></td>
+						<span class="required"></span>
 						
 						
 						';

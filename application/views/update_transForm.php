@@ -16,11 +16,13 @@
     <div>
 		<label class="control-label col-sm-4" for="price">Price:</label>
 		<input class="form-control col-sm-4"type="text" name="price" id="price" value="<?php echo $price?>" />
+		<span class="required"></span>
     </div>
     
     <div>
 		<label class="control-label col-sm-4" for="qty">Quantity:</label>
 		<input class="form-control col-sm-4"type="text" name="qty" id="qty" value="<?php echo $qty?>" />
+		<span class="required"></span>
     </div>
     
 	<div class="col-sm-6">
