@@ -340,11 +340,11 @@ class Knoxville extends CI_Controller {
         //load the view
         //get form data
         //add to db
-        $rules = array(
-                    array('field'=>'cname', 'label'=>'Client Name', 'rules'=>'required'),
-                    array('field'=>'caddress', 'label'=>'Client Address', 'rules'=>'required'),
-                    array('field'=>'cnum', 'label'=>'Contact No.', 'rules'=>'required')
-                );
+       $rules = array(
+                   array('field'=>'cname', 'label'=>'Client Name', 'rules'=>'required'),
+                  array('field'=>'caddress', 'label'=>'Client Address', 'rules'=>'required'),
+                   array('field'=>'cnum', 'label'=>'Contact No.', 'rules'=>'required')
+               );
         $this->form_validation->set_rules($rules);
         $this->form_validation->set_error_delimiters('<p class="error">', '</p>');
         if($this->form_validation->run()==FALSE){

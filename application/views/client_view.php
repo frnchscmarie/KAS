@@ -33,28 +33,22 @@
   <?php echo form_open('knoxville/addClient'); //this is equal to <form method="post" accept-charset="utf-8" action="http://localhost/Knoxville-Auto-Supply/knoxville/addClient">
                                      //to add attributes, edit to: echo form('knoxville/addClient','class="lala" id="lala"'); 
   ?> 
-  
-    
-             <!--<div class="ClientForm">
-		<label class="control-label col-sm-4" for="cnum">Contact Number:</label>
-		<input class="form-control col-sm-4" type="text" name="cnum" id="cnum" placeholder="09-XXX-XXX-XXX" />
-    </div>-->
-	
-					<div class="form-group has-feedback">
-                        <input type="text" class="form-control has-feedback-left" required="required" data-validate-length-range="6" data-validate-words="2" for="cname" id="inputSuccess2" placeholder="  Client Name" name="cname" value="<?php echo set_value('cname'); ?>" id="cname">
-                        <span class="fa fa-user form-control-feedback left required" aria-hidden="true"></span>
-                      </div>
-		
-		
-                     <div class="form-group has-feedback">
-                        <input type="text" class="form-control has-feedback-left" required="required" for="cnum" id="inputSuccess2" placeholder="Contact Number" name="cnum" value="<?php echo set_value('cnum'); ?>" id="cnum">
-                        <span class="fa fa-phone form-control-feedback left required" aria-hidden="true"></span>
-                      </div>
+    <div class="ClientForm">
+    <label class="control-label col-sm-4">Company Name </label>
+    <input class="form-control col-sm-4" type="text" name="cname" id="cname" placeholder="Company Name" />
+    </div>
 
-                      <div class=" form-group has-feedback">
-                        <input type="text" class="form-control has-feedback-left" required="required" for="caddress" id="inputSuccess2" placeholder="  Address" name="caddress" value="<?php echo set_value('caddress'); ?>" id="caddress">
-                        <span class="fa fa-home form-control-feedback left required" aria-hidden="true"></span>
-                      </div>
+	 <div class="ClientForm">
+		<label class="control-label col-sm-4">Company Address</label>
+	    <input class="form-control col-sm-4" type="text" name="caddress" id="caddress" placeholder="Company Address" />
+	</div>
+	
+    
+    <div class="ClientForm">
+		<label class="control-label col-sm-4">Contact Number:</label>
+		<input class="form-control col-sm-4" type="text" name="cnum" id="cnum" placeholder="09-XXX-XXX-XXX" />
+    </div>
+    
 	
 	<div class="">
 		<label class="control-label col-sm-4">&nbsp;</label>
@@ -63,7 +57,7 @@
 	
 	 <div class="form-group">
                         <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
-                          <button class="btn btn-primary" type="button" style="margin-left: 50px;"><a href="<?php echo base_url('knoxville/viewClients')?>" style="color: white;">Cancel</a></button>
+                          <button class="btn btn-primary" type="button" style="margin-left: 50px;"><a href="<?php echo base_url('knoxville/viewDeliverer')?>" style="color: white;">Cancel</a></button>
                           
                           <button type="submit" class="btn btn-success" value="submit">Submit</button>
                         </div>
