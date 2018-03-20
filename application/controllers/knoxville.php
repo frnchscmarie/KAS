@@ -15,6 +15,7 @@ class Knoxville extends CI_Controller {
         $this->load->model('qoute_model','quote');
         $this->load->model('client_qoute_model','clientQuote');
         $this->load->model('purchase_model','purchase');
+        $this->load->model('stock_in_model','Stocks');
     }
     
     
@@ -946,9 +947,10 @@ class Knoxville extends CI_Controller {
     }
     
     public function viewItems(){
-        $result_array = $this->Item->read();
-        
-        $data['item'] = $result_array; 
+        $result_array = $this->Item->read();     
+        $data['item'] = $result_array;
+        $result_array = $this->Stocks->read();     
+        $data['stocks'] = $result_array; 
         $header_data['title'] = "View Inventory";
         $this->load->view('include/header',$header_data);
         $this->load->view('item_view',$data);
@@ -961,7 +963,7 @@ class Knoxville extends CI_Controller {
         //add to db
         $rules = array(
                     array('field'=>'idesc', 'label'=>'Item Description', 'rules'=>'required'),
-                    array('field'=>'stocks', 'label'=>'Stocks', 'rules'=>'required')
+                    array('field'=>'price', 'label'=>'price', 'rules'=>'required')
                 );
         $this->form_validation->set_rules($rules);
         $this->form_validation->set_error_delimiters('<p class="error">', '</p>');
@@ -969,11 +971,48 @@ class Knoxville extends CI_Controller {
             $header_data['title'] = "Add Item";
             $this->load->view('include/header',$header_data);
             $this->load->view('add_itemForm');
+            $this->load->view('include/footer');
         }
         else{
-            $itemRecord=array('item_desc'=>$_POST['idesc'],'stocks'=>$_POST['stocks']);
+            $itemRecord=array('item_desc'=>$_POST['idesc'],'unit_price'=>$_POST['price']);
             $this->Item->create($itemRecord);
             redirect('knoxville/viewItems');
+        }
+    }
+
+    public function addStocks(){
+        //load the view
+        //get form data
+        //add to db
+       $rules = array(
+                    array('field'=>'stockID', 'label'=>'Stock ID', 'rules'=>'required'),
+                    array('field'=>'date', 'label'=>'Date', 'rules'=>'required')
+                );
+        $this->form_validation->set_rules($rules);
+        $this->form_validation->set_error_delimiters('<p class="error">', '</p>');
+        if($this->form_validation->run()==FALSE){
+            $header_data['title'] = "Add Stocks";
+            $result_array = $this->Item->read();
+            $data['items'] = $result_array;
+            $this->load->view('include/header',$header_data);
+            $this->load->view('add_stockForm',$data);
+            $this->load->view('include/footer');
+        }
+     else{
+             if(!empty($_POST['itemList'])) {
+             foreach($_POST['itemList'] as $check) {
+                $count++;
+             }
+            }
+            $items=$_POST['itemList']; 
+            $quantity=$_POST['quantity'];
+                 for($x = 0; $x<=$count; $x++){
+                     if($items[$x] != NULL){
+                        $stockRecord=array('stockID'=>$_POST['stockID'],'itemID'=>$items[$x],'quantity'=>$quantity[$x],'date'=>$_POST['date']);
+                        $this->Stocks->create($stockRecord);
+                    }
+                   redirect('knoxville/viewItems');
+                }
         }
     }
     

@@ -1,6 +1,6 @@
 <?php
 
-class Client_model extends CI_Model {
+class stock_in_model extends CI_Model {
     private $table = 'stock_in';
     
     function create($stock_inRecord){
