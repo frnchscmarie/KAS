@@ -673,8 +673,9 @@ class SalesAgent extends CI_Controller {
         if($this->form_validation->run()==FALSE){
 			$header_data['title'] = "Update Item";
             $this->load->view('include/SA_header',$header_data);
-			$this->load->view('include/footer');
+			
             $this->load->view('update_itemForm_user',$data);
+			$this->load->view('include/footer');
 
         }
 		

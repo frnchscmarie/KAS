@@ -1,12 +1,8 @@
 <!DOCTYPE html>
 <div class="tab-content">
-<?php echo validation_errors(); ?>
-<div class="card-body" style="padding: 10px;"><h3 style="text-align: center; text-decoration: bold;" >ITEM MANAGEMENT</h3>
-	<div class="search1">
-		Search: <input type="text" id="myInput" onkeyup="Item()" placeholder="Type any value" title="Type ANY value">
-		<a data-toggle="modal" data-target="#squarespaceModal" class="butt4"><span class="glyphicon glyphicon-plus"> </span>&nbsp;Add Item</a>
+
 	
-<div class="modal fade" id="squarespaceModal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+<!--<div class="modal fade" id="squarespaceModal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
   <div class="modal-dialog">
 	<div class="modal-content">
 		<div class="modal-header">
@@ -35,47 +31,59 @@
 	</div>
   </form>
   </div>
-  </div>
-  </div>
-  </div>
-  </div>
-	
-	</div>
+  </div> -->
+  
+  
+  <!DOCTYPE html>
+<body class="nav-md">
+    <div class="container body">
+      <div class="main_container">
+
+<div class="right_col" role="main">
+          <div class="">
     
-        <div class="table-responsive table" id="myTable">
-            <table class="table table-striped">
-                <thead>
+    <div class="clearfix"></div>
+
+            <div class="row">
+              <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel">
+                  <div class="x_title">
+                    <h2>Inventory</h2>
+                    <ul class="nav navbar-right panel_toolbox">
+                      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                      </li>
+                      <li><a href="<?php echo base_url('SalesAgent/addItem')?>"><i class="fa fa-plus"></i> Add Item</a>
+                      </li>
+                    </ul>
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="x_content">
+                    <p class="text-muted font-13 m-b-30">
+                      Manage all the items.
+                    </p>
+                    <table id="datatable" class="table table-striped table-bordered">
+                      <thead>
                     <tr id="trHead">
 						<th>Item Description</th>
 						<th>Stocks</th>
 						<th>ACTION</th>
 					</tr>
 				</thead>
-			<tbody>
-				<?php
-                if($item != false){
-					foreach($item as $c){  
-						echo "<tr><td>".$c['item_desc']."</td><td>".$c['stocks']
-
-						.'</td><td><a href="'.base_url('SalesAgent/updateItem/'.$c['itemID']).'"><span class="glyphicon glyphicon-edit"></span></a> | <a onclick="confirmDelete('.$c['itemID'].')"><span class="glyphicon glyphicon-trash"></span></a></td></tr>';
-
-						//echo base_url('SalesAgent/delClient/'.c['clientID'])
-					}
+        <tbody>
+            <?php
+                foreach($item as $c){  
+                    echo "<tr><td>".$c['item_desc']."</td><td>".$c['stocks']
+                    .'</td><td><a href="'.base_url('SalesAgent/updateItem/'.$c['itemID']).'" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i>Edit</a><a href="'.base_url('SalesAgent/delItem/'.$c['itemID']).'"class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i>Delete</a></td></tr>';
+                    //echo base_url('SalesAgent/delClient/'.c['clientID'])
                 }
-				?>
-			</tbody>
-		</table>
+            ?>
+        </tbody>
+    </table>
     </div>
-
 </div>
+    </div>
 </div>
+    </div>
 </div>
-<script>
-    function confirmDelete(itemID){
-        var choice=confirm("Delete this item?");
-        if(choice)
-            window.location.assign("<?php echo base_url('SalesAgent/delItem'); ?>"+"/"+itemID);
-    }
-    </script>
 </body>
 </html>
