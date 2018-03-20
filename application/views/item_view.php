@@ -131,11 +131,13 @@
             foreach($stocks as $s){
 
               echo "<tr><td>";
-
+			  
+				if($item!=null){
               foreach($item as $i){
                 if($s['itemID']==$i['itemID'])
                   echo $i['item_desc'];
               }
+				}
               echo "</td><td>".$s['stockID']."</td><td>".$s['quantity']."</td><td>".$s['date'].'</td><td><a href="'.base_url('knoxville/delItem/'.$s['itemID']).'"class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i> Delete</a></td></tr>';
                     //echo base_url('knoxville/delClient/'.c['clientID'])
 

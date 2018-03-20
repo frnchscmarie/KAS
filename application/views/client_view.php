@@ -92,11 +92,13 @@
                 </thead>
                 <tbody>
             <?php
+				if($clients!=null){
                 foreach($clients as $c){ //Array ( [clientID] => 1 [client_name] => dsa [address] => dsa [contact_no] => 123 ) 
                     echo "<tr><td>".$c['clientID']."</td><td>".$c['client_name']."</td><td>".$c['address']."</td><td>".$c['contact_no']
                     .'</td><td><a href="'.base_url('knoxville/updateClient/'.$c['clientID']).'" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i> Edit</a></td></tr>';
                     //echo base_url('knoxville/delClient/'.c['clientID'])
                 }
+				}
             ?>
         </tbody>
                     </table>
