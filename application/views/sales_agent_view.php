@@ -14,8 +14,7 @@
                   <div class="x_title">
                     <h2>Sales Agent Management</h2>
                     <ul class="nav navbar-right panel_toolbox">
-                      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                      </li>
+                  
                       <li><a data-toggle="modal" data-target="#squarespaceModal" class="butt5" ><i class="fa fa-plus"></i> Add Sales Agent </a>
 					  
 					  	

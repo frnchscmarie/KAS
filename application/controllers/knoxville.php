@@ -284,7 +284,6 @@ class Knoxville extends CI_Controller {
             $data['bday'] = $o['birthdate'];
             $data['email'] = $o['email'];
             $data['cnum'] = $o['contact_no'];
-            $data['photo'] = $o['photo'];
             $url = $o['photo'];
             if($o['isAdmin']>0)
                 $isAdmin='checked';

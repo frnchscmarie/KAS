@@ -13,8 +13,7 @@
                   <div class="x_title">
                     <h2>Items</h2>
                     <ul class="nav navbar-right panel_toolbox">
-                      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                      </li>
+                 
 					  <li><a data-toggle="modal" data-target="#squarespaceModal" class="butt5" ><i class="fa fa-plus"></i> Add Item </a>
 	<!--start of modal-->				  
 <div class="modal fade" id="squarespaceModal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
@@ -104,8 +103,7 @@
                   <div class="x_title">
                     <h2>Stocks</h2>
                     <ul class="nav navbar-right panel_toolbox">
-                      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                      </li>
+                      
                       <li><a href="<?php echo base_url('knoxville/addStocks')?>"><i class="fa fa-plus"></i> Add Stock</a>
                       </li>
                     </ul>
