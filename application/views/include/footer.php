@@ -62,6 +62,8 @@
     <script src="<?php echo base_url('assets/gentelella-master/vendors/pdfmake/build/pdfmake.min.js'); ?>"></script>
     <script src="<?php echo base_url('assets/gentelella-master/vendors/pdfmake/build/vfs_fonts.js'); ?>"></script>
 
+    <script src="<?php echo base_url('assets/gentelella-master/vendors/validator/validator.js'); ?>"></script>
+
     <!-- Custom Theme Scripts -->
     <script src="<?php echo base_url('assets/gentelella-master/build/js/custom.min.js'); ?>"></script>
   </body>

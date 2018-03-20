@@ -85,7 +85,7 @@
                 if($s['itemID']==$i['itemID'])
                   echo $i['item_desc'];
               }
-              echo "</td><td>".$s['stockID']."</td><td>".$s['quantity']."</td><td>".$s['date'].'</td><td><a href="'.base_url('knoxville/updateItem/'.$s['itemID']).'" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i> Edit</a><a href="'.base_url('knoxville/delItem/'.$s['itemID']).'"class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i> Delete</a></td></tr>';
+              echo "</td><td>".$s['stockID']."</td><td>".$s['quantity']."</td><td>".$s['date'].'</td><td><a href="'.base_url('knoxville/updateStocks/'.$s['itemID']).'" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i> Edit</a><a href="'.base_url('knoxville/delItem/'.$s['itemID']).'"class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i> Delete</a></td></tr>';
                     //echo base_url('knoxville/delClient/'.c['clientID'])
 
             }

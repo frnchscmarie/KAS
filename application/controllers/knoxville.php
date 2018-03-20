@@ -1029,12 +1029,12 @@ class Knoxville extends CI_Controller {
         if($oldRecord != false){
             foreach($oldRecord as $o){
                 $data['idesc'] = $o['item_desc'];
-                $data['stocks'] = $o['stocks'];
+                $data['price'] = $o['unit_price'];
             }
         }
         $rules = array(
                     array('field'=>'idesc', 'label'=>'Item Description', 'rules'=>'required'),
-                    array('field'=>'stocks', 'label'=>'Stocks', 'rules'=>'required')
+                    array('field'=>'price', 'label'=>'Price', 'rules'=>'required')
                 );
         $this->form_validation->set_rules($rules);
         if($this->form_validation->run()==FALSE){
@@ -1044,11 +1044,39 @@ class Knoxville extends CI_Controller {
             $this->load->view('include/footer');
         }
         else{
-            $newRecord=array('itemID'=>$itemID,'item_desc'=>$_POST['idesc'],'stocks'=>$_POST['stocks']);
+            $newRecord=array('itemID'=>$itemID,'item_desc'=>$_POST['idesc'],'unit_price'=>$_POST['price']);
             $this->Item->update($newRecord,$itemID);
             redirect('knoxville/viewItems');
         }
     }
+
+    /*public function updateStocks($itemID){
+        $data['itemID']=$itemID;
+        $condition = array('itemID' => $itemID);
+        $oldRecord = $this->Item->read($condition);
+        if($oldRecord != false){
+            foreach($oldRecord as $o){
+                $data['idesc'] = $o['item_desc'];
+                $data['price'] = $o['unit_price'];
+            }
+        }
+        $rules = array(
+                    array('field'=>'idesc', 'label'=>'Item Description', 'rules'=>'required'),
+                    array('field'=>'price', 'label'=>'Price', 'rules'=>'required')
+                );
+        $this->form_validation->set_rules($rules);
+        if($this->form_validation->run()==FALSE){
+            $header_data['title'] = "Update Item";
+            $this->load->view('include/header',$header_data);
+            $this->load->view('update_itemForm',$data);
+            $this->load->view('include/footer');
+        }
+        else{
+            $newRecord=array('itemID'=>$itemID,'item_desc'=>$_POST['idesc'],'unit_price'=>$_POST['price']);
+            $this->Item->update($newRecord,$itemID);
+            redirect('knoxville/viewItems');
+        }
+    }*/
     
     public function viewDeliverer(){
         $result_array = $this->Deliverer->read();
