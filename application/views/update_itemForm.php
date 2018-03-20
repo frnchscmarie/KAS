@@ -2,7 +2,7 @@
 <div class="tab-content">
   <?php echo validation_errors(); ?>
   
-  <?php echo form_open('SalesAgent/updateItem/'.$itemID); //this is equal to <form method="post" accept-charset="utf-8" action="http://localhost/Knoxville-Auto-Supply/SalesAgent/addClient">
+  <?php echo form_open('knoxville/updateItem/'.$itemID); //this is equal to <form method="post" accept-charset="utf-8" action="http://localhost/Knoxville-Auto-Supply/knoxville/addClient">
                                      //to add attributes, edit to: echo form('knoxville/addClient','class="lala" id="lala"'); 
   ?> 
  <div class="right_col" role="main">
@@ -38,7 +38,7 @@
 		 
                       <div class="form-group">
                         <div class="">
-                          <button class="btn btn-primary" type="button"><a href="<?php echo base_url('SalesAgent/viewItems')?>" style="color: white;">Cancel</a></button>
+                          <button class="btn btn-primary" type="button"><a href="<?php echo base_url('knoxville/viewItems')?>" style="color: white;">Cancel</a></button>
                           <button class="btn btn-primary" type="reset">Reset</button>
                           <button type="submit" class="btn btn-success" value="submit">Submit</button>
                         </div>
