@@ -5,7 +5,7 @@
           <div class="">
             <div class="page-title">
               <div class="row">
-              <div class="col-md-12">
+             <!-- <div class="col-md-12">
                 <div class="x_panel" style="height: 400px;">
                   <div class="x_title">
                     <h2>Sales Report <small>Weekly progress</small></h2>
@@ -19,18 +19,22 @@
                   </div>
                   <div class="x_content">
                     <div class="col-md-9 col-sm-12 col-xs-12">
+          <div id="range-dropdown" class="text-center">
 					<article class="media event">
+
                       <a class="pull-left date">
                         <p class="month">April</p>
                         <p class="day">23</p>
                       </a>
                       <div class="media-body">
                       	<i class="glyphicon glyphicon-calendar fa fa-calendar"></i>
-                        <select class="select" name='range'>
+                <select class="select" name="range">
 							<option value="day" selected>Today</option>
 							<option value="week">This week</option>
 							<option value="month">This month</option>
 						</select>
+            </div>
+            <div id="sales_report">
 						<script>
 					        $(document).ready(function(){
 					            $.ajax({
@@ -60,6 +64,7 @@
 					            });
 					        });
 					    </script>
+
                       </div>
                     </article>
 					<div>&nbsp;</div>
@@ -88,10 +93,9 @@
                                  <canvas width="200" height="60" style="display: inline-block; vertical-align: top; width: 94px; height: 30px;"></canvas>
                           </span>
                         </div>
-                      </div>-->
+                      </div>
 
-                    </div>
-
+                    
                     <div class="col-md-3 col-sm-12 col-xs-12">
                       <div>
                         <div class="x_title">
@@ -154,7 +158,7 @@
 
                   </div>
                 </div>
-              </div>
+              </div>-->
             </div>
             </div>
 
@@ -249,12 +253,14 @@
 		  <tbody>
 				<?php
 				
-                if($orders != false){
+                if($orders != null){
 					foreach($orders as $o){  
 						$sched=0;
+            if($shipped != null){
 						foreach($shipped as $s){
 							if($s['orderID'] == $o['orderID'])
 							$sched++;
+          }
 						}
 						if($sched==0){
 							echo '<tr>

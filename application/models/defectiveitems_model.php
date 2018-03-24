@@ -1,6 +1,6 @@
 <?php
 
-class Client_model extends CI_Model {
+class defectiveitems_model extends CI_Model {
     private $table = 'defectiveitems';
     
     function create($defectiveitemsRecord){

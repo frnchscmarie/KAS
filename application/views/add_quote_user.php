@@ -2,8 +2,8 @@
 <body class="nav-md">
     <div class="container body">
       <div class="main_container">
-        <?php echo form_open('knoxville/addQuote','id="quote"'); //this is equal to <form method="post" accept-charset="utf-8" action="http://localhost/Knoxville-Auto-Supply/knoxville/addOrder">
-                                     //to add attributes, edit to: echo form('knoxville/addOrder','class="lala" id="lala"'); 
+        <?php echo form_open('SalesAgent/addQuote','id="quote"'); //this is equal to <form method="post" accept-charset="utf-8" action="http://localhost/SalesAgent-Auto-Supply/SalesAgent/addOrder">
+                                     //to add attributes, edit to: echo form('SalesAgent/addOrder','class="lala" id="lala"'); 
   ?> 
 
 <div class="right_col" role="main">
@@ -83,11 +83,11 @@
                         echo '<tr><td>'.$c['item_desc'].'</td>
                             <td class="col-sm-2" >
 
-                                <input style="width: 100px;" type="number" min="'.$c['unit_price'].'" form="quote" class="form-control" id="price'.$counter.'"  name="price[]" value="'.$c['unit_price'].'" disabled />
+                                <input style="width: 100px;" type="number" form="quote" class="form-control" id="price'.$counter.'"  name="price[]" value="'.$c['unit_price'].'" disabled />
 								<span class="required"></span>
                             </td>
                             <td class="col-sm-2">							
-                                <input style="width: 100px;" type="number" form="quote" class="form-control" id="quantity'.$counter.'"  name="quantity[]" min="0" value="0" disabled />
+                                <input style="width: 100px;" type="number" form="quote" class="form-control" id="quantity'.$counter.'"  name="quantity[]" value="0" disabled />
 								<span class="required"></span>
                             </td>
                             
@@ -109,7 +109,7 @@
 	                  
                       <div class="form-group">
                         <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
-                          <button class="btn btn-primary" type="button"><a href="<?php echo base_url('knoxville/viewOrders')?>" style="color: white;">Cancel</a></button>
+                          <button class="btn btn-primary" type="button"><a href="<?php echo base_url('SalesAgent/viewOrders')?>" style="color: white;">Cancel</a></button>
                           <button class="btn btn-primary" type="reset">Reset</button>
                           <button type="submit" class="btn btn-success" value="submit">Submit</button>
                         </div>

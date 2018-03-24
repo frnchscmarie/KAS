@@ -3,9 +3,9 @@
     <div class="container body">
       <div class="main_container">
         <?php 
-        echo form_open('knoxville/returnItem/'.$orderID,'id="returns"');
-         //this is equal to <form method="post" accept-charset="utf-8" action="http://localhost/Knoxville-Auto-Supply/knoxville/addOrder">
-                                     //to add attributes, edit to: echo form('knoxville/addOrder','class="lala" id="lala"'); 
+        echo form_open('SalesAgent/returnItem/'.$orderID,'id="returns"');
+         //this is equal to <form method="post" accept-charset="utf-8" action="http://localhost/SalesAgent-Auto-Supply/SalesAgent/addOrder">
+                                     //to add attributes, edit to: echo form('SalesAgent/addOrder','class="lala" id="lala"'); 
   ?> 
 
 <div class="right_col" role="main">
@@ -21,7 +21,7 @@
             <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                   <div class="x_title">
-                    <h3>Return Item</h3>
+                    <h3>Add Purchase</h3>
                     <ul class="nav navbar-right panel_toolbox">
                       <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                       </li>
@@ -64,34 +64,11 @@
 
           foreach($order as $q){ 
             
-            if($return!=null){
+            if(isset($return)){
               foreach($return as $r){
-                $quantity = (int) $q['quantity']-(int) $r['quantity'];
-                if($quantity>0 && $r['itemID']==$q['itemID']){
-                  foreach($items as $c){
-                    if($q['itemID']==$c['itemID']){
-                   $counter++;
-                      echo '<tr><td>'.$c['item_desc'].'</td>
-           
-
-              <td class="col-sm-2">             
-                <input type="number" class="form-control" id="quantity'.$counter.'"  name="quantity[]" value="'.$quantity.'" disabled/>
-              </td>
-              
-              <td><input type="checkbox" name="itemList[]" id="items'.$counter.'" value="'.$c['itemID'].'" onClick="toggle('."'items".$counter."'".', '."'quantity".$counter."'".')"/></td>
-              
-            ';
-                    }
-
-                  }
-
-               }
-            }
-          }
-
-          else{
-               foreach($items as $c){
-                    if($q['itemID']==$c['itemID']){
+                if($r['orderID']!=$q['orderID'] && $r['itemID']!=$q['itemID']){
+                  foreach($items as $c){ 
+                    if($q['itemID']!=$c['itemID']){
                    $counter++;
                       echo '<tr><td>'.$c['item_desc'].'</td>
            
@@ -103,11 +80,14 @@
               <td><input type="checkbox" name="itemList[]" id="items'.$counter.'" value="'.$c['itemID'].'" onClick="toggle('."'items".$counter."'".', '."'quantity".$counter."'".')"/></td>
               
             ';
+                    }
+                  }
+
+               }
             }
           }
             
         }
-      }
                    
           echo '</tbody>';
           if($counter==0)
@@ -123,21 +103,14 @@
                         <input type="date" class="form-control has-feedback-left" for="returns" id="inputSuccess2" placeholder="Date:" name="date" value="<?php echo date('Y-m-d'); ?>">
                         <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
             </div>
-
-            <select class="form-group has-feedback" name="reason">
-                        <option value="Defective Item">Defective</option>
-                        <option value="Excess">Excess</option>
-            </select>
    
 	                  
                       <div class="form-group">
                         <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
-                          <button class="btn btn-primary" type="button"><a href="<?php echo base_url('knoxville/viewTransaction/'.$orderID)?>" style="color: white;">Cancel</a></button>
+                          <button class="btn btn-primary" type="button"><a href="<?php echo base_url('SalesAgent/viewOrders')?>" style="color: white;">Cancel</a></button>
                           <button type="submit" class="btn btn-success" value="submit">Submit</button>
                         </div>
                       </div>
-
-
                      
                       
   </form>

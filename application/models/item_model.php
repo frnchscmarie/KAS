@@ -42,5 +42,11 @@ class Item_model extends CI_Model {
         $this->db->where('itemID', $itemID);
         $this->db->update($this->table);
     }
+     function count(){
+        $this->db->select('*');
+        $this->db->from($this->table);
+        $query = $this->db->get();
+        return $query->num_rows();
+    }
 }
 ?>

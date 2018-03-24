@@ -4,8 +4,8 @@
 
   <?php echo validation_errors(); ?>
   
-  <?php echo form_open('knoxville/viewTransaction/'.$orderID); //this is equal to <form method="post" accept-charset="utf-8" action="http://localhost/Knoxville-Auto-Supply/knoxville/addClient">
-                                     //to add attributes, edit to: echo form('knoxville/addClient','class="lala" id="lala"'); 
+  <?php echo form_open('SalesAgent/viewTransaction/'.$orderID); //this is equal to <form method="post" accept-charset="utf-8" action="http://localhost/SalesAgent-Auto-Supply/SalesAgent/addClient">
+                                     //to add attributes, edit to: echo form('SalesAgent/addClient','class="lala" id="lala"'); 
   ?>
 <div class="right_col" role="main">
           <div class="">
@@ -62,7 +62,7 @@
               
             <div class="form-group" style="margin-left: 120px;">
                                   <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
-                                    <button class="btn btn-primary"><a href="<?php echo base_url('knoxville/returnItem/'.$orderID);?>" style="color: white;">Return Item</a></button>
+                                    <button class="btn btn-primary"><a href="<?php echo base_url('SalesAgent/returnItem/'.$orderID);?>" style="color: white;">Return Item</a></button>
                                     
                                     <?php if(empty($shipment))
                                        {
@@ -84,8 +84,8 @@
 		<div>&nbsp;</div>
 					<div class="main_container">
 			<?php echo validation_errors(); ?>
-			<?php echo form_open('knoxville/addSched/'.$orderID,'id="delivery"'); //this is equal to <form method="post" accept-charset="utf-8" action="http://localhost/Knoxville-Auto-Supply/knoxville/addClient">
-											 //to add attributes, edit to: echo form('knoxville/addClient','class="lala" id="lala"'); 
+			<?php echo form_open('SalesAgent/addSched/'.$orderID,'id="delivery"'); //this is equal to <form method="post" accept-charset="utf-8" action="http://localhost/SalesAgent-Auto-Supply/SalesAgent/addClient">
+											 //to add attributes, edit to: echo form('SalesAgent/addClient','class="lala" id="lala"'); 
 			?>
 		
            
@@ -142,7 +142,7 @@
 	
 	 <div class="form-group">
                         <div class="">
-                          <button class="btn btn-primary" type="button"  style="margin-left: -60px;"><a href="<?php echo base_url('knoxville/index')?>" style="color: white;">Cancel</a></button>
+                          <button class="btn btn-primary" type="button"  style="margin-left: -60px;"><a href="<?php echo base_url('SalesAgent/index')?>" style="color: white;">Cancel</a></button>
                           <button type="submit" class="btn btn-success" value="submit" style="margin-right: 20px; color: white;">Submit</button>
                         </div>
       </div>			  
@@ -196,8 +196,7 @@
               echo $i['item_desc'];
             } 
             echo '</td><td>&#x20B1;'.number_format($t['unit_price']).'</td><td>'.$t['quantity'].'</td></tr>';
-            $totalPrice = $totalPrice + $t['unit_price']*$t['quantity'];
-            //echo base_url('knoxville/delClient/'.c['clientID'])
+            //echo base_url('SalesAgent/delClient/'.c['clientID'])
             }
 		 }
 
@@ -249,7 +248,7 @@
               echo $i['item_desc'];
             } 
             echo '</td><td>'.$t['quantity'].'</td><td>'.$t['date'].'</td><td>'.$t['reason'].'</td></tr>';
-            //echo base_url('knoxville/delClient/'.c['clientID'])
+            //echo base_url('SalesAgent/delClient/'.c['clientID'])
             }
           }
           else{
@@ -280,11 +279,8 @@
   <div class="modal-content">
     <div class="modal-header">
       
-       <?php if(!empty($shipment))
-      {
-      echo '<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
-      <h3 class="modal-title" id="lineModalLabel">Add Shipment Status </h3>';
-      } ?>
+      <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+      <h3 class="modal-title" id="lineModalLabel">Add Shipment Status </h3>
 
     
     </div>
@@ -293,10 +289,10 @@
           <div class="main_container">
       <?php echo validation_errors(); ?>
      <?php 
-  echo form_open('knoxville/addDeliveryStatus/'.$orderID,'id="status"'); 
+  echo form_open('SalesAgent/addDeliveryStatus/'.$orderID,'id="status"'); 
   ?>
   
-    
+    <div class="ClientForm"style="margin-left: 250px;">
     <select name="status" id='status' form="status">
       <option selected disabled hidden>Status</option>
         <option value="Forwarded to">Forwarded</option>
@@ -315,19 +311,22 @@
     <input type="time" name="time" value="<?php date_default_timezone_set('Asia/Manila'); echo  date("H:i"); ?>" required="required"/>
     <span class="required"></span>
         <br />
+      
   
   
     
            
   
   
-   <div class="form-group">
-                        <div class="">
-                          <button class="btn btn-primary" type="button"  style="margin-left: -60px;"><a href="<?php echo base_url('knoxville/index')?>" style="color: white;">Cancel</a></button>
+  
+                        <div class="form-group" style="margin-left: 250px;">
+                          <button class="btn btn-primary" type="button"  style="margin-left: -60px;"><a href="<?php echo base_url('SalesAgent/index')?>" style="color: white;">Cancel</a></button>
                           <button type="submit" for="status" class="btn btn-success" value="submit" style="margin-right: 20px; color: white;">Submit</button>
+                        </div>
                         </div>
       </div>        
                   </form>
+                  </div>
                                 </div>
             </div>
 
@@ -370,7 +369,7 @@
               echo $i['item_desc'];
             } */
             echo '<tr><td>'.$t['status'].'</td><td>'.$t['location'].'</td><td>'.$t['date'].'</td><td>'.$t['time'].'</td></tr>';
-            //echo base_url('knoxville/delClient/'.c['clientID'])
+            //echo base_url('SalesAgent/delClient/'.c['clientID'])
             }
           }
           else{
