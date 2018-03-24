@@ -17,6 +17,7 @@ class Knoxville extends CI_Controller {
         $this->load->model('purchase_model','purchase');
         $this->load->model('stock_in_model','Stocks');
         $this->load->model('returns_model','return');
+        $this->load->model('defectiveitems_model','Defective');
     }
     
     
@@ -44,29 +45,22 @@ class Knoxville extends CI_Controller {
             }
         }
     }
-     /*public function viewSalesReport(){
-    
-    
+     public function viewSalesReport(){
     
         if($_POST['range']=='week'){
             $startDate = date('Y-m-d',strtotime('next sunday - 1 week'));
             $endDate = date('Y-m-d',strtotime('next sunday - 1 second'));
             $start = date('jS F, Y',strtotime('next sunday - 1 week'));
             $end = date('jS F, Y',strtotime('next sunday - 1 second'));
-            $condition = "(status='Cancelled' OR status='Returned' or status='Purchased') AND date BETWEEN '$startDate' AND '$endDate'";
-            $transData=$this->Transaction->read($condition);
+            $condition = "date BETWEEN '$startDate' AND '$endDate'";
+            $transData=$this->purchase->read($condition);
             $totalQuantity = 0;
             $totalRevenue = 0;
             if($transData!=false){
                 foreach($transData as $t){
-                    if($t['status']=='Purchased'){
+                   
                         $totalQuantity += $t['quantity'];
                         $totalRevenue += $t['quantity']*$t['unit_price'];
-                    }
-                    else{
-                        $totalQuantity -= $t['quantity'];
-                        $totalRevenue -= $t['quantity']*$t['unit_price'];
-                    }
                 }
             }
             $data['totalQuantity'] = number_format($totalQuantity);
@@ -82,7 +76,7 @@ class Knoxville extends CI_Controller {
                                 if($s['userID'] == $o['userID']){
                                     $condition1 = "orderID='".$o['orderID']."'";
                                     if($transData!=false){
-                                        $trans = $this->Transaction->read($condition1." AND ".$condition);
+                                        $trans = $this->purchase->read($condition1." AND ".$condition);
                                             if($trans!=false){
                                              foreach($trans as $t){
                                                 if($t['status']=='Purchased'){
@@ -107,24 +101,20 @@ class Knoxville extends CI_Controller {
             echo $this->load->view('sales_report',$data,TRUE);
         }
         else if($_POST['range']=='month'){
-            $startDate = date('Y-m-d',strtotime('first day of this month'));
+           $startDate = date('Y-m-d',strtotime('first day of this month'));
             $endDate = date('Y-m-d',strtotime('last day of this month'));
             $start = date('jS F, Y',strtotime('first day of this month'));
             $end = date('jS F, Y',strtotime('last day of this month'));
-            $condition = "(status='Cancelled' OR status='Returned' or status='Purchased') AND date BETWEEN '$startDate' AND '$endDate'";
-            $transData=$this->Transaction->read($condition);
+            $condition = "date BETWEEN '$startDate' AND '$endDate'";
+            $transData=$this->purchase->read($condition);
             
             $totalQuantity = 0;
             $totalRevenue = 0;
             if($transData!=false){
                 foreach($transData as $t){
-                    if($t['status']=='Purchased'){
+                    {
                         $totalQuantity += $t['quantity'];
                         $totalRevenue += $t['quantity']*$t['unit_price'];
-                    }
-                    else{
-                        $totalQuantity -= $t['quantity'];
-                        $totalRevenue -= $t['quantity']*$t['unit_price'];
                     }
                 }
             }
@@ -141,15 +131,12 @@ class Knoxville extends CI_Controller {
                             if($s['userID'] == $o['userID']){
                                 $condition1 = "orderID='".$o['orderID']."'";
                                 if($transData!=false){
-                                    $trans = $this->Transaction->read($condition1." AND ".$condition);
+                                    $trans = $this->purchase->read($condition1." AND ".$condition);
                                         if($trans!=false){
                                          foreach($trans as $t){
-                                            if($t['status']=='Purchased'){
+                                            
                                                 $total += $t['quantity']*$t['unit_price'];
-                                            }
-                                            else{
-                                                $total -= $t['quantity']*$t['unit_price'];
-                                            }
+                                           
                                         }
                                     }
                                 }
@@ -162,27 +149,20 @@ class Knoxville extends CI_Controller {
                 }
             }
             $data['range'] = 'This Month';
-            $data['date'] = $start.' to '.$end;
-            echo $this->load->view('sales_report',$data,TRUE);
+            $data['date'] = $start.' to '.$end; 
+            $this->load->view('sales_report',$data,TRUE);
         }
         else if($_POST['range']=='day'){
             $date = date('Y-m-d',strtotime('today'));
             //$condition=array('date'=>$date, 'status'=>'Purchased');
-            $condition= "date='$date' AND (status='Cancelled' OR status='Returned' or status='Purchased')";
-            $transData=$this->Transaction->read($condition);
-            
+           $condition="date='$date'";
+            $transData=$this->purchase->read($condition);
             $totalQuantity = 0;
             $totalRevenue = 0;
             if($transData!=false){
                 foreach($transData as $t){
-                    if($t['status']=='Purchased'){
                         $totalQuantity += $t['quantity'];
                         $totalRevenue += $t['quantity']*$t['unit_price'];
-                    }
-                    else{
-                        $totalQuantity -= $t['quantity'];
-                        $totalRevenue -= $t['quantity']*$t['unit_price'];
-                    }
                 }
             }
            $data['totalQuantity'] = number_format($totalQuantity);
@@ -198,14 +178,11 @@ class Knoxville extends CI_Controller {
                             if($s['userID'] == $o['userID']){
                                 $condition1 = "orderID='".$o['orderID']."'";
                                 if($transData!=false){
-                                    $trans = $this->Transaction->read($condition1." AND ".$condition);
+                                    $trans = $this->purchase->read($condition1." AND ".$condition);
                                         if($trans!=false){
                                          foreach($trans as $t){
-                                            if($t['status']=='Purchased'){
+                                            {
                                                 $total += $t['quantity']*$t['unit_price'];
-                                            }
-                                            else{
-                                                $total -= $t['quantity']*$t['unit_price'];
                                             }
                                         }
                                     }
@@ -220,17 +197,16 @@ class Knoxville extends CI_Controller {
             }
             $data['range'] = 'Today';
             $date = date('jS F, Y',strtotime('today'));
-            $data['date'] = $date;
-            echo $this->load->view('sales_report',$data,TRUE);
+            $data['date'] = $date; 
+            echo  $this->load->view('sales_report',$data,TRUE);
             
            
         }
                  $this->load->view('include/footer');
-    }*/
+    }
     
     public function viewSalesAgents(){
         $result_array = $this->SalesAgent->read();
-        
         $data['sales_agents'] = $result_array; 
         $id =  $this->SalesAgent->count();
         $data['id'] = (string) $id++;
@@ -267,7 +243,7 @@ class Knoxville extends CI_Controller {
                 $isAdmin=1;
             else
                 $isAdmin=0;
-            $salesAgentRecord=array('userID'=>$_POST['userID'],'password'=>$_POST['pass'],'fullname'=>$_POST['name'],'birthdate'=>$_POST['bday'],'email'=>$_POST['email'],'contact_no'=>$_POST['cnum'],'isAdmin'=>$isAdmin);
+            $salesAgentRecord=array('userID'=>$_POST['userID'],'password'=>password_hash($_POST['pass'],PASSWORD_BCRYPT),'fullname'=>$_POST['name'],'birthdate'=>$_POST['bday'],'email'=>$_POST['email'],'contact_no'=>$_POST['cnum'],'isAdmin'=>$isAdmin);
             $this->SalesAgent->create($salesAgentRecord);
             redirect('knoxville/viewSalesAgents');
         }
@@ -284,7 +260,6 @@ class Knoxville extends CI_Controller {
             $data['bday'] = $o['birthdate'];
             $data['email'] = $o['email'];
             $data['cnum'] = $o['contact_no'];
-            $url = $o['photo'];
             if($o['isAdmin']>0)
                 $isAdmin='checked';
             else
@@ -313,8 +288,7 @@ class Knoxville extends CI_Controller {
                 $isAdmin=1;
             else
                 $isAdmin=0;
-            $url = $this->do_upload($_POST['file']);
-            $newRecord=array('userID'=>$_POST['userID'],'password'=>$_POST['pass'],'fullname'=>$_POST['name'],'birthdate'=>$_POST['bday'],'email'=>$_POST['email'],'contact_no'=>$_POST['cnum'],'isAdmin'=>$isAdmin,'photo'=>$url);
+            $newRecord=array('userID'=>$_POST['userID'],'password'=>$_POST['pass'],'fullname'=>$_POST['name'],'birthdate'=>$_POST['bday'],'email'=>$_POST['email'],'contact_no'=>$_POST['cnum'],'isAdmin'=>$isAdmin);
             $this->SalesAgent->update($newRecord);
             redirect('knoxville/viewSalesAgents');
         }
@@ -659,7 +633,7 @@ class Knoxville extends CI_Controller {
                  
                  for($x = 0; $x<$count; $x++){
                     if($items[$x] != NULL){
-                        $purchaseRecord=array('orderID'=>$orderID,'itemID'=>$items[$x],'unit_price'=>$price[$x],'quantity'=>$quantity[$x]);   
+                        $purchaseRecord=array('orderID'=>$orderID,'itemID'=>$items[$x],'unit_price'=>$price[$x],'quantity'=>$quantity[$x],'date'=>$_POST['date'],'time'=>$_POST['time']);   
                         $this->purchase->create($purchaseRecord);
                        //if($_POST['trans'] == 'Purchased'){
                         //  $this->Item->subtractStocks($quantity[$x], $items[$x]);
@@ -671,13 +645,13 @@ class Knoxville extends CI_Controller {
         }
     }
     public function returnItem($orderID){
-       /** $rules = array(
+    $rules = array(
+                    
                     array('field'=>'date', 'label'=>'date', 'rules'=>'required'),
-                    array('field'=>'itemList', 'label'=>'time', 'rules'=>'required'),
                 );
                 
         $this->form_validation->set_rules($rules);
-        if($this->form_validation->run()==FALSE){**/
+        if($this->form_validation->run()==FALSE){
             $data['orderID']=$orderID;
             $condition = array('orderID' => $orderID);
             $orderRec = $this->purchase->read($condition);
@@ -689,8 +663,8 @@ class Knoxville extends CI_Controller {
             $header_data['title'] = "Return";
             $this->load->view('include/header',$header_data);
             $this->load->view('return_view',$data);  
-       //  }
-        //else{
+     }
+       else{
         $count = 0; 
              if(!empty($_POST['itemList'])) {
                  foreach($_POST['itemList'] as $check) {
@@ -703,15 +677,18 @@ class Knoxville extends CI_Controller {
                  for($x = 0; $x<$count; $x++){
                     if($items[$x] != NULL){
                         $returnRecord=array('orderID'=>$orderID,'itemID'=>$items[$x],'quantity'=>$quantity[$x],'date'=>$_POST['date'],'reason'=>'Defective Item');   
+                        if($_POST['reason']=='Defective Item')
+                        {
+                            $defect=array('itemID'=>$items[$x],'quantity'=>$quantity[$x]);
+                            $this->Defective->create($defect);
+                        }
                         $this->return->create($returnRecord);
-                       //if($_POST['trans'] == 'Purchased'){
-                        //  $this->Item->subtractStocks($quantity[$x], $items[$x]);
-                       // }
                     }
+
                  }
-            //}
-        redirect('knoxville/viewTransaction/'.$orderID);
-        } 
+        }
+       redirect('knoxville/viewTransaction/'.$orderID);
+     } 
     }
     
     public function delOrder($orderID){
@@ -725,6 +702,9 @@ class Knoxville extends CI_Controller {
         $data['client_quote'] = $result_array; 
         $result_array = $this->Order->read();
         $data['orders'] = $result_array;
+        $result_array = $this->Client->read();
+        $data['clients'] = $result_array;
+
         //$result_array = $this->Client->read();
         //$data['clients'] = $result_array;
         $header_data['title'] = "View Sales";
@@ -865,7 +845,6 @@ class Knoxville extends CI_Controller {
                  if($items[$x] != NULL){
                      $transRecord=array('orderID'=>$orderID,'itemID'=>$items[$x],'unit_price'=>$price[$x],'quantity'=>$quantity[$x],'date'=>$_POST['date'],'time'=>$_POST['time'],'status'=>$trans[$x]);   
                      $this->Transaction->create($transRecord);
-                     $this->Item->addStocks($quantity[$x], $items[$x]);
                  }
              }
              redirect('knoxville/viewOrders');
@@ -976,9 +955,82 @@ class Knoxville extends CI_Controller {
     
     public function viewItems(){
         $result_array = $this->Item->read();     
+        $items = $this->Item->read();     
         $data['item'] = $result_array;
         $result_array = $this->Stocks->read();     
+        $stocks = $this->Stocks->read();     
         $data['stocks'] = $result_array; 
+        $result_array = $this->Defective->read();     
+        $data['defect'] = $result_array; 
+        $orderID = $this->Order->getLastRecordID();
+        $condition = array('orderID' => $orderID);
+        $orders = $this->purchase->read($condition);
+        $purchase = $this->purchase->read();
+        $condition = array('orderID' => $orderID);
+        if(!empty($orders)){
+        foreach ($orders as $o) {
+                $date = $o['date'];
+                $time = $o['time'];
+             }
+         }
+        $condition = "date <= '$date'";
+        $stockdiff =  $this->Stocks->read($condition);
+        if(!empty($items)){
+            foreach ($items as $i) {
+                $x=0;
+                $total =0;
+                $itemid = $i['itemID'];
+                if(!empty($stockdiff)){
+                    foreach($stockdiff as $d){
+
+                            if($d['itemID'] == $itemid)
+                            {
+                            
+                               $total = $total + $d['quantity'];
+                            }
+                    }
+                }
+                if(!empty($purchase)){
+
+                     foreach($purchase as $p){
+                        if($p['itemID'] == $itemid)
+                        {
+                               $total = $total - $p['quantity'];
+                        }
+                    }
+                }
+            $item[$itemid]=$total;
+            }
+        }
+        $condition = "date >= '$date'";
+        $stockdiff =  $this->Stocks->read($condition);
+        $defective =  $this->Defective->read();
+         foreach ($items as $i) {
+                $itemid = $i['itemID'];
+                $total=0;
+                if($item[$itemid] <= 0)
+                  $total = 0;
+                if(!empty($stockdiff)){
+                    foreach($stockdiff as $d){
+                            if($d['itemID'] == $itemid)
+                            {
+                               if($d['time']>=$time) 
+                               $total = $total + $d['quantity'];
+                            }
+                    }
+                if(!empty($defective)){
+                    foreach($defective as $d){
+                            if($d['itemID'] == $itemid)
+                            {
+                               $total = $total + $d['quantity'];
+                            }
+                    }
+                }
+                $item[$itemid]=$total;
+            }
+        }
+        $data['counter'] = $this->Item->count();
+        $data['itemstocks'] = $item;
         $header_data['title'] = "View Inventory";
         $this->load->view('include/header',$header_data);
         $this->load->view('item_view',$data);
@@ -1012,6 +1064,7 @@ class Knoxville extends CI_Controller {
         //load the view
         //get form data
         //add to db
+        date_default_timezone_set('Asia/Manila');
        $rules = array(
                     array('field'=>'stockID', 'label'=>'Stock ID', 'rules'=>'required'),
                     array('field'=>'date', 'label'=>'Date', 'rules'=>'required')
@@ -1034,14 +1087,20 @@ class Knoxville extends CI_Controller {
             }
             $items=$_POST['itemList']; 
             $quantity=$_POST['quantity'];
-                 for($x = 0; $x<=$count; $x++){
+                 for($x = 0; $x<=$count++; $x++){
                      if($items[$x] != NULL){
-                        $stockRecord=array('stockID'=>$_POST['stockID'],'itemID'=>$items[$x],'quantity'=>$quantity[$x],'date'=>$_POST['date']);
+                        $stockRecord=array('stockID'=>$_POST['stockID'],'itemID'=>$items[$x],'quantity'=>$quantity[$x],'date'=>$_POST['date'],'time' => date('H:i'));
                         $this->Stocks->create($stockRecord);
                     }
                    redirect('knoxville/viewItems');
                 }
         }
+    }
+
+    public function delStock($stockID,$itemID){
+        $where_array = array('stockID'=>$stockID,'itemID'=>$itemID);
+        $this->Stocks->del($where_array);
+        redirect('knoxville/viewItems');
     }
     
     public function delItem($itemID){
@@ -1177,25 +1236,29 @@ class Knoxville extends CI_Controller {
         redirect('knoxville/viewDeliverer');
     }
     public function changepass(){
-        $user =  $this->session->userdata('userID');
-        $condition = array('userID' => $user);
+        $userID =  $this->session->userdata('userID');
+        $condition = array('userID' => $userID);
         $array = $this->SalesAgent->read($condition);
         if($array != false){
             foreach($array as $o){
                         $password = $o['password'];
-                        $userID = $o['userID'];   
+                        $userID = $o['userID'];  
+                        $fullname = $o['fullname'];  
+                        $num = $o['contact_no'];  
+                        $bday = $o['birthdate'];  
+                        $email = $o['email'];  
+
+
             }
         }
         $rules = array(
-                    array('field'=>'password', 'label'=>'Password', 'rules'=>'required|matches['.$password.']'),
-                    array('field'=>'confirm_password', 'label'=>'New Password', 'rules'=>'required'),
-                    array('field'=>'new_password', 'label'=>'Re-enter New Password', 'rules'=>'required|matches[confirm_password]')
+                    array('field'=>'password', 'label'=>'New Password', 'rules'=>'required'),
+                    array('field'=>'confirm_password', 'label'=>'New Password', 'rules'=>'required|matches[confirm_password]'),
+                    array('field'=>'new_password', 'label'=>'Re-enter New Password', 'rules'=>'required')
         );
         $this->form_validation->set_rules($rules);
         $this->form_validation->set_error_delimiters('<p class="error">', '</p>');
         if($this->form_validation->run()==FALSE){
-            $user =  $this->session->userdata('userID');
-            $condition = array('userID' => $user);
             $result_array = $this->SalesAgent->read($condition);
             $data['d'] = $result_array;
             $header_data['title'] = "CHANGE PASSWORD";
@@ -1204,9 +1267,9 @@ class Knoxville extends CI_Controller {
             $this->load->view('include/footer');
         }else{
             $user =  $this->session->userdata('userID');
-            $change=array('userID'=>$userID,'password'=>$_POST['new_password']);
+            $change=array('userID'=>$userID,'password'=>$_POST['new_password'],'fullname'=>$fullname,'contact_no'=>$num,'birthdate'=>$bday,'email'=>$email);
             $this->SalesAgent->update($change);
-            redirect(knoxville/viewSalesAgents);
+            redirect('knoxville/viewSalesAgents');
         }
     }
     public function do_upload()

@@ -2,8 +2,8 @@
 <div class="tab-content">
   <?php echo validation_errors(); ?>
   
-  <?php echo form_open('SalesAgent/updateItem/'.$itemID); //this is equal to <form method="post" accept-charset="utf-8" action="http://localhost/Knoxville-Auto-Supply/knoxville/addClient">
-                                     //to add attributes, edit to: echo form('knoxville/addClient','class="lala" id="lala"'); 
+  <?php echo form_open('SalesAgent/updateItem/'.$itemID); //this is equal to <form method="post" accept-charset="utf-8" action="http://localhost/SalesAgent-Auto-Supply/SalesAgent/addClient">
+                                     //to add attributes, edit to: echo form('SalesAgent/addClient','class="lala" id="lala"'); 
   ?> 
  <div class="right_col" role="main">
           <div class="">
@@ -14,10 +14,7 @@
                 <div class="x_panel">
                   <div class="x_title">
                     <h3>Edit Item</h3>
-                    <ul class="nav navbar-right panel_toolbox">
-                      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                      </li>
-                    </ul>
+                    
                     <div class="clearfix"></div>
                </div>
                   <div class="x_content">
@@ -34,7 +31,7 @@
 					  
                       <div class=" form-group has-feedback">
 					   <label class="form" for="idesc">Stocks </label>
-                        <input type="text" class="form-control" for="stocks" id="inputSuccess2" placeholder="Stocks" name="stocks" value="<?php echo $stocks; ?>" id="stocks">
+                        <input type="text" class="form-control" for="price" id="inputSuccess2" placeholder="Price" name="price" value="<?php echo $price; ?>" id="price">
 						<span class="required"></span>
                       </div>
 		 

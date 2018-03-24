@@ -31,7 +31,7 @@
           <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
 
                       <div class="form-group has-feedback">
-                        <input type="text" class="form-control has-feedback-left" for="userID" id="inputSuccess2" placeholder="User ID" name="userID" value="<?php echo $userID; ?>" id="userID">
+                        <input type="text" class="form-control has-feedback-left" for="userID" id="inputSuccess2" placeholder="User ID" name="userID" value="<?php echo $userID; ?>" id="userID" readonly="readonly">
                         <span class="fa fa-user form-control-feedback left required" aria-hidden="true"></span>
                       </div>
 					  

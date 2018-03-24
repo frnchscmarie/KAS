@@ -23,6 +23,16 @@
     <link href="<?php echo base_url('assets/gentelella-master/vendors/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css'); ?>" rel="stylesheet">
     <link href="<?php echo base_url('assets/gentelella-master/vendors/datatables.net-responsive-bs/css/responsive.bootstrap.min.css'); ?>" rel="stylesheet">
     <link href="<?php echo base_url('assets/gentelella-master/vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css'); ?>" rel="stylesheet">
+     <!-- bootstrap-wysiwyg -->
+    <link href="../vendors/google-code-prettify/bin/prettify.min.css" rel="stylesheet">
+    <!-- Select2 -->
+    <link href="../vendors/select2/dist/css/select2.min.css" rel="stylesheet">
+    <!-- Switchery -->
+    <link href="../vendors/switchery/dist/switchery.min.css" rel="stylesheet">
+    <!-- starrr -->
+    <link href="../vendors/starrr/dist/starrr.css" rel="stylesheet">
+    <!-- bootstrap-daterangepicker -->
+    <link href="../vendors/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
 
     <!-- Custom Theme Style -->
     <link href="<?php echo base_url('assets/gentelella-master/build/css/custom.min.css'); ?>" rel="stylesheet">
@@ -39,7 +49,7 @@
         <div class="col-md-3 left_col">
           <div class="left_col scroll-view">
             <div class="navbar nav_title" style="border: 0;">
-              <a href="<?php echo base_url('knoxville')?>" class="site_title"><i class="fa fa-automobile"></i> <span>Knoxville</span></a>
+              <a href="<?php echo base_url('SalesAgent')?>" class="site_title"><i class="fa fa-automobile"></i> <span>Knoxville</span></a>
             </div>
 
             <div class="clearfix"></div>
@@ -47,11 +57,11 @@
             <!-- menu profile quick info -->
             <div class="profile clearfix">
               <div class="profile_pic">
-                <img src="<?php echo base_url('assets/gentelella-master/production/images/admin.jpg'); ?>" alt="..." class="img-circle profile_img">
+                <img src="<?php echo base_url('assets/gentelella-master/production/images/user.png'); ?>" alt="..." class="img-circle profile_img">
               </div>
               <div class="profile_info">
                 <span>Welcome,</span>
-                <h2>Admin</h2>
+                <h2>Sales Agent</h2>
               </div>
               <div class="clearfix"></div>
             </div>
@@ -67,17 +77,13 @@
                   <li><a href="<?php echo base_url('SalesAgent')?>"> <i class="fa fa-home"></i> Home </a>
                   </li>
                   
-                  <li><a href="<?php echo base_url('SalesAgent/viewClients')?>" class="navigation">Client Management </a>
+                  <li><a href="<?php echo base_url('SalesAgent/viewClients')?>" class="navigation"> <i class="fa fa-group"></i>Client Management </a>
                    
                   </li>
-                  <li><a class="navigation"> Sales Management<span class="fa fa-chevron-down"></span></a>
-                    <ul class="nav child_menu">
-                      <li><a href="<?php echo base_url('SalesAgent/viewOrders')?>">View Sales</a></li>
-                      <li><a href="<?php echo base_url('SalesAgent/addQuote')?>">Add Quotation</a></li>
-                      <li><a href="<?php echo base_url('SalesAgent/addPurchasedd')?>">Add Purchase</a></li>
-                    </ul>
+                  <li><a href="<?php echo base_url('SalesAgent/viewOrders')?>"><i class="fa fa-bar-chart"></i> Sales Management</a>
+                    
                   </li>
-                  <li><a href="<?php echo base_url('SalesAgent/viewItems')?>" class="navigation">Inventory</a>
+                  <li><a href="<?php echo base_url('SalesAgent/viewItems')?>" class="navigation"><i class="fa fa-info"></i>Inventory</a>
                     
                   </li>
 
@@ -103,7 +109,7 @@
               <a data-toggle="tooltip" data-placement="top" title="Lock">
                 <span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span>
               </a>
-              <a data-toggle="tooltip" data-placement="top" title="Logout" href="login.html">
+              <a data-toggle="tooltip" data-placement="top" title="Logout" href="<?php echo base_url('login/logout'); ?>">
                 <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
               </a>
             </div>
@@ -122,81 +128,18 @@
               <ul class="nav navbar-nav navbar-right">
                 <li class="">
                   <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                    <img src="images/img.jpg" alt="">Welcome, Admin!
+                    <img src="images/img.jpg" alt="">Welcome, Sales Agent!
                     <span class=" fa fa-angle-down"></span>
                   </a>
                   <ul class="dropdown-menu dropdown-usermenu pull-right">
                    
                     
                     <li><a href="<?php echo base_url('SalesAgent/changepass'); ?>"><i class="fa fa-lock pull-right"></i> Change Password</a></li>
-                    <li><a href="login.html"><i class="fa fa-sign-out pull-right"></i> Log Out</a></li>
+                    <li><a href="<?php echo base_url('login/logout'); ?>"><i class="fa fa-sign-out pull-right"></i> Log Out</a></li>
                   </ul>
                 </li>
 
-                <li role="presentation" class="dropdown">
-                  <a href="javascript:;" class="dropdown-toggle info-number" data-toggle="dropdown" aria-expanded="false">
-                    <i class="fa fa-envelope-o"></i>
-                    <span class="badge bg-green">6</span>
-                  </a>
-                  <ul id="menu1" class="dropdown-menu list-unstyled msg_list" role="menu">
-                    <li>
-                      <a>
-                        <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span>
-                        <span>
-                          <span>John Smith</span>
-                          <span class="time">3 mins ago</span>
-                        </span>
-                        <span class="message">
-                          Film festivals used to be do-or-die moments for movie makers. They were where...
-                        </span>
-                      </a>
-                    </li>
-                    <li>
-                      <a>
-                        <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span>
-                        <span>
-                          <span>John Smith</span>
-                          <span class="time">3 mins ago</span>
-                        </span>
-                        <span class="message">
-                          Film festivals used to be do-or-die moments for movie makers. They were where...
-                        </span>
-                      </a>
-                    </li>
-                    <li>
-                      <a>
-                        <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span>
-                        <span>
-                          <span>John Smith</span>
-                          <span class="time">3 mins ago</span>
-                        </span>
-                        <span class="message">
-                          Film festivals used to be do-or-die moments for movie makers. They were where...
-                        </span>
-                      </a>
-                    </li>
-                    <li>
-                      <a>
-                        <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span>
-                        <span>
-                          <span>John Smith</span>
-                          <span class="time">3 mins ago</span>
-                        </span>
-                        <span class="message">
-                          Film festivals used to be do-or-die moments for movie makers. They were where...
-                        </span>
-                      </a>
-                    </li>
-                    <li>
-                      <div class="text-center">
-                        <a>
-                          <strong>See All Alerts</strong>
-                          <i class="fa fa-angle-right"></i>
-                        </a>
-                      </div>
-                    </li>
-                  </ul>
-                </li>
+                
               </ul>
             </nav>
           </div>

@@ -15,6 +15,9 @@ class Login extends CI_Controller {
             if($this->session->userdata('isAdmin')>0){
                  redirect(base_url('knoxville'));
             }
+            else{
+                redirect(base_url('SalesAgent'));
+            }
         }
 	}
     

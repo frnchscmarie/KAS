@@ -14,6 +14,11 @@
                 <div class="x_panel">
                   <div class="x_title">
                     <h2>Quoted</h2>
+                    <ul class="nav navbar-right panel_toolbox">
+                 
+            <li><a href="<?php echo base_url('knoxville/addQuote')?>"><i class="fa fa-plus"></i> Add Quotation</a>
+            </li>
+                    </ul>
                     <div class="clearfix"></div>
                   </div>
                   <div class="x_content">
@@ -28,6 +33,7 @@
                 <th>Date</th>
                 <th>Time</th>
                 <th>Duedate</th>
+                <th>Assigned</th>
                 <th>Action</th>
             </tr>
         </thead>
@@ -36,11 +42,17 @@
 			
 			 	if($client_quote!=null){
                 foreach($client_quote as $c){ //Array ( [clientID] => 1 [client_name] => dsa [address] => dsa [contact_no] => 123 ) 
-                    echo "<tr><td>".$c['quoteID']."</td><td>".$c['clientID']."</td><td>".$c['date']."</td><td>".$c['time']."</td><td>".$c['due']
-                    .'</td><td><a href="'.base_url('knoxville/addPurchasedd/'.$c['quoteID']).'" class="btn btn-danger btn-xs"><i class="fa fa-thumbs-up"></i> Purchase</a></td></tr>';
+                    echo "<tr><td>".$c['quoteID']."</td>";
+                foreach($clients as $s){
+                  if($s['clientID']==$c['clientID'])
+                    echo   '<td>'.$s['client_name'].'</td>';
+                }
+                echo 
+                    "<td>".$c['date']."</td><td>".$c['time']."</td><td>".$c['due']
+                    .'</td><td>'.$c['userID'].'</td><td><a href="'.base_url('knoxville/addPurchasedd/'.$c['quoteID']).'" class="btn btn-danger btn-xs"><i class="fa fa-thumbs-up"></i> Purchase</a></td></tr>';
                     //echo base_url('knoxville/delClient/'.c['clientID'])
                 }
-				}
+              }
             ?>
 			
         </tbody>
@@ -54,6 +66,11 @@
                 <div class="x_panel">
                   <div class="x_title">
                     <h2>Purchased</h2>
+                    <ul class="nav navbar-right panel_toolbox">
+                 
+            <li><a href="<?php echo base_url('knoxville/addPurchasedd')?>"><i class="fa fa-plus"></i> Add Purchase</a>
+            </li>
+                    </ul>
                     <div class="clearfix"></div>
                   </div>
                   <div class="x_content">
@@ -69,19 +86,25 @@
                 <th>Date</th>
                 <th>Time</th>
                 <th>Duedate</th>
-                <th>Action</th>
+                <th>Assigned</th>
             </tr>
         </thead>
         <tbody>
             <?php
       
-       
+                if($orders!=null){
                 foreach($orders as $c){ //Array ( [clientID] => 1 [client_name] => dsa [address] => dsa [contact_no] => 123 ) 
-                    echo "<tr><td>//</td><td>".$c['orderID']."</td><td>".$c['clientID']."</td><td>".$c['date']."</td><td>".$c['time']."</td><td>".$c['due']
-                    .'</td><td><a href="'.base_url('knoxville/viewTransaction/'.$c['orderID'].'').'" class="btn btn-warning btn-xs"><i class="fa fa-eye"></i> View</a><a href="" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i> Edit</a></td>
+                    echo '<tr><td><a href="'.base_url('knoxville/viewTransaction/'.$c['orderID'].'').'"class="btn btn-warning btn-xs"><i class="fa fa-eye"></i> View</a></td><td>'.$c['orderID']."</td>";
+                    foreach($clients as $s){
+                    if($s['clientID']==$c['clientID'])
+                    echo   '<td>'.$s['client_name'].'</td>';
+                    }
+               echo "<td>".$c['date']."</td><td>".$c['time']."</td><td>".$c['due']
+                    .'</td><td>'.$c['userID'].'</td>
 					</tr>';
                     //echo base_url('knoxville/delClient/'.c['clientID'])
                 }
+              }
             ?>
       
         </tbody>

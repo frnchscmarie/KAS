@@ -29,7 +29,7 @@
 				</thead>
 			<tbody>
 				<?php
-                if($sales != false){
+               if($sales != false){
 					foreach($sales as $c){  
 						echo "<tr><td>".$c['fullname']."</td><td>".$c['orders'].'</td><td>PHP'.$c['total'].'</td></tr>';
 					}
@@ -39,5 +39,3 @@
 			</tbody>
 			</table>
    		</div>
-</body>
-</html>
